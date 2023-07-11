@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [TestController::class, 'home'])->name('home');
+Route::get('/Services', [TestController::class, 'Services'])->name('Services');
+Route::get('/Projects', [TestController::class, 'projects'])->name('Projects');
+Route::get('/Contact', [TestController::class, 'contact'])->name('Contact');
+Route::get('/About', [TestController::class, 'aboutus'])->name('About');
