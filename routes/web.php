@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,12 @@ Route::get('/Projects', [TestController::class, 'projects'])->name('Projects');
 Route::get('/Contact', [TestController::class, 'contact'])->name('Contact');
 Route::get('/About', [TestController::class, 'aboutus'])->name('About');
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('services', [ServiceController::class, 'index'])->name('services.index');
+    Route::post('/add-services', [ServiceController::class, 'store'])->name('services.store');
+    Route::patch('/edit-services/{id}', [ServiceController::class, 'update'])->name('services.update');
+    Route::delete('/delete-services/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
