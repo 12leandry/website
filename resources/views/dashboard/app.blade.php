@@ -36,6 +36,7 @@
     <link href="{{asset('dash/plugins/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('dash/assets/css/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    @yield('css')
 
 </head>
 <body>
@@ -64,6 +65,8 @@
     </div>
     <!-- END MAIN CONTAINER -->
 
+    @yield('script')
+
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="{{asset('dash/assets/js/libs/jquery-3.1.1.min.js')}}"></script>
     <script src="{{asset('dash/bootstrap/js/popper.min.js')}}"></script>
@@ -72,6 +75,12 @@
     <script src="{{asset('dash/assets/js/app.js')}}"></script>
     <script src="{{asset('dash/assets/js/custom.js')}}"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script src="{{asset('dash/plugins/apex/apexcharts.min.js')}}"></script>
