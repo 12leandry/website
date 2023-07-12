@@ -63,8 +63,8 @@
           <li><a href="{{route('Contact')}}" class="{{ $activeLink == 'Contact' ? 'active' : ' ' }}">Contact</a></li>
           <li class="dropdown"><a href="#"><span>Language</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Fr <i> <img src="{{asset('assets')}}/img/flags/fr.svg" style="width: 30px; height: 20px; " alt=""></i></a></li>
-              <li><a href="#">En <i> <img src="{{asset('assets')}}/img/flags/en.svg" style="width: 30px; height: 30px;" alt=""></i></a></li>              
+              <li><a href="#">Fr <i> <img src="{{asset('assets')}}/img/flags/fr.svg" style="width: 30px; height: 15px; " alt=""></i></a></li>
+              <li><a href="#">En <i> <img src="{{asset('assets')}}/img/flags/uk.svg" style="width: 30px; height: 30px;" alt=""></i></a></li>              
             </ul>
           </li>
           <li><img src="{{asset('assets')}}/img/flags/cameroon.svg" style="width: 30px; height: 20px" alt=""> </li>
