@@ -54,7 +54,9 @@
                                 <td>{{ $service->titre }}</td>
                                 <td>{{ $service->sous_titre }}</td>
                                 <td>{{ $service->description }}</td>
-                                <td>{{ $service->icone }}</td>
+                                <td>
+                                    <img src="{{ asset('storage/' . $service->icone) }}" alt="Service-Icon" style="width: 100px; height:100px">
+                                </td>
                                 <td class="text-center">
                                     <div class="dropdown custom-dropdown">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -123,7 +125,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="submit" class="btn btn-primary">Créer</button>
                 </div>
             </form>
         </div>
@@ -164,7 +166,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
                 </div>
             </form>
         </div>
