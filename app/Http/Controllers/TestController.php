@@ -26,5 +26,13 @@ class TestController extends Controller
     {
         return view('aboutus');
     }
+    public function servicedetail()
+    {
+        return view('servicedetails');
+    }
+    public function projectdetail()
+    {
+        return view('projectdetails');
+    }
     
 }

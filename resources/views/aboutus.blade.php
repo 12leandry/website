@@ -11,7 +11,7 @@
 
       <h2>About</h2>
       <ol>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="{{route('home')}}">Home</a></li>
         <li>About</li>
       </ol>
 

@@ -30,6 +30,8 @@ Route::get('/Services', [TestController::class, 'Services'])->name('Services');
 Route::get('/Projects', [TestController::class, 'projects'])->name('Projects');
 Route::get('/Contact', [TestController::class, 'contact'])->name('Contact');
 Route::get('/About', [TestController::class, 'aboutus'])->name('About');
+Route::get('/Service-details', [TestController::class, 'servicedetail'])->name('Service-details');
+Route::get('/Project-details', [TestController::class, 'projectdetail'])->name('Project-details');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('services', [ServiceController::class, 'index'])->name('services.index');

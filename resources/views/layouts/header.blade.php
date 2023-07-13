@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>TestSarl||Accueil </title>
+  <title>TestSarl </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -61,18 +61,22 @@
           <li><a href="{{route('Projects')}}" class="{{ $activeLink == 'Projects' ? 'active' : ' ' }}">Projects</a></li>
         
           <li><a href="{{route('Contact')}}" class="{{ $activeLink == 'Contact' ? 'active' : ' ' }}">Contact</a></li>
-          <li class="dropdown"><a href="#"><span>Language</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Fr <i> <img src="{{asset('assets')}}/img/flags/fr.svg" style="width: 30px; height: 15px; " alt=""></i></a></li>
-              <li><a href="#">En <i> <img src="{{asset('assets')}}/img/flags/uk.svg" style="width: 30px; height: 30px;" alt=""></i></a></li>              
-            </ul>
-          </li>
-          <li><img src="{{asset('assets')}}/img/flags/cameroon.svg" style="width: 30px; height: 20px" alt=""> </li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li><img src="{{asset('assets')}}/img/flags/cameroon.svg" style="width: 50px; height: 25px; padding-right: 20px  " alt=""> </li>
+          <select >
+            <option  value="Fr">Fr </option>
+            <option value="En">En </option>       
+          </select>        
         </ul>
-      </nav><!-- .navbar -->
+      </nav>
+      <!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
+
 
   @yield('content')
 
