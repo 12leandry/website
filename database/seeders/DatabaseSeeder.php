@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\ProjetsTableSeeder;
 use Database\Seeders\ServicesTableSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(ServicesTableSeeder::class);
+        $this->call(ProjetsTableSeeder::class);
+        // $this->call(ServicesTableSeeder::class);
         // $this->call(UserSeeder::class);
         // \App\Models\User::factory(10)->create();
 
