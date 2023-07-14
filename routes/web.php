@@ -5,6 +5,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/add-projets', [ProjetController::class, 'store'])->name('projets.store');
     Route::patch('/edit-projets/{id}', [ProjetController::class, 'update'])->name('projets.update');
     Route::delete('/delete-projets/{id}', [ProjetController::class, 'destroy'])->name('projets.destroy');
+
+    Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
+    Route::post('/add-teams', [TeamController::class, 'store'])->name('teams.store');
+    Route::patch('/edit-teams/{id}', [TeamController::class, 'update'])->name('teams.update');
+    Route::delete('/delete-teams/{id}', [TeamController::class, 'destroy'])->name('teams.destroy');
 });
 
 Route::middleware('auth')->group(function () {
