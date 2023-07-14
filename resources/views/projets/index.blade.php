@@ -38,54 +38,58 @@
                 </div>
                 @endif
                 <div class="widget-heading">
-                    <table class="multi-table table table-striped table-bordered table-hover non-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>titre</th>
-                                <th>sous titre</th>
-                                <th>description</th>
-                                <th>icone</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($projets as $projet)
-                            <tr>
-                                <td>{{ $projet->titre }}</td>
-                                <td>{{ $projet->sous_titre }}</td>
-                                <td>{{ $projet->description }}</td>
-                                <td>
-                                    <img src="{{ asset('storage/' . $projet->icone) }}" alt="Projet-Icon" style="width: 100px; height:100px">
-                                </td>
-                                <td class="text-center">
-                                    <div class="dropdown custom-dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                                            {{-- <a class="dropdown-item" href="javascript:void(0);">View</a> --}}
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#editProjet{{ $projet->id }}" title="Editer un projet" href="javascript:void(0);">
-                                                Edit
-                                            </a>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#deleteProjet{{ $projet->id }}" title="Supprimer un projet" href="javascript:void(0);">
-                                                Delete
-                                            </a>
+                    <div class="table-responsive">
+                        <table class="multi-table table table-striped table-bordered table-hover non-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>titre</th>
+                                    <th>sous titre</th>
+                                    <th>description</th>
+                                    <th>icone</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($projets as $projet)
+                                <tr>
+                                    <td>{{ $projet->titre }}</td>
+                                    <td>{{ $projet->sous_titre }}</td>
+                                    <td>{{ $projet->description }}</td>
+                                    <td>
+                                        <div class="td-content customer-name">
+                                            <img src="{{ asset('storage/' . $projet->icone) }}" alt="Projet-Icon">
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>titre</th>
-                                <th>sous titre</th>
-                                <th>description</th>
-                                <th>icone</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="dropdown custom-dropdown">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                                {{-- <a class="dropdown-item" href="javascript:void(0);">View</a> --}}
+                                                <a class="dropdown-item" data-toggle="modal" data-target="#editProjet{{ $projet->id }}" title="Editer un projet" href="javascript:void(0);">
+                                                    Edit
+                                                </a>
+                                                <a class="dropdown-item" data-toggle="modal" data-target="#deleteProjet{{ $projet->id }}" title="Supprimer un projet" href="javascript:void(0);">
+                                                    Delete
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>titre</th>
+                                    <th>sous titre</th>
+                                    <th>description</th>
+                                    <th>icone</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -226,3 +230,11 @@
         });
     } );
 </script>
+<style>
+    img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-right: 13px;
+    }
+</style>

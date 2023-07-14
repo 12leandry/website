@@ -20,7 +20,7 @@
                     <div class="col d-flex justify-content-end">
                         <div class="text-center">
                             <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal" data-target="#exampleModal">
-                              Créer un service
+                              Ajuter un membre
                             </button>
                         </div>
                     </div>
@@ -41,22 +41,22 @@
                     <table class="multi-table table table-striped table-bordered table-hover non-hover" style="width:100%">
                         <thead>
                             <tr>
-                                <th>titre</th>
-                                <th>sous titre</th>
-                                <th>description</th>
-                                <th>icone</th>
+                                <th>Noms</th>
+                                <th>Prenoms</th>
+                                <th>Poste</th>
+                                <th>Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($services as $service)
+                            @foreach($teams as $team)
                             <tr>
-                                <td>{{ $service->titre }}</td>
-                                <td>{{ $service->sous_titre }}</td>
-                                <td>{{ $service->description }}</td>
+                                <td>{{ $team->noms }}</td>
+                                <td>{{ $team->prenoms }}</td>
+                                <td>{{ $team->poste }}</td>
                                 <td>
                                     <div class="td-content customer-name">
-                                        <img src="{{ asset('storage/' . $service->icone) }}" alt="Service-Icon">
+                                        <img src="{{ asset('storage/' . $team->image) }}" alt="Membre-Icon">
                                     </div>
                                 </td>
                                 <td class="text-center">
@@ -66,10 +66,10 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
                                             {{-- <a class="dropdown-item" href="javascript:void(0);">View</a> --}}
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#editService{{ $service->id }}" title="Editer un service" href="javascript:void(0);">
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#editMembre{{ $team->id }}" title="Editer un membre" href="javascript:void(0);">
                                                 Edit
                                             </a>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#deleteService{{ $service->id }}" title="Supprimer un service" href="javascript:void(0);">
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#deleteMembre{{ $team->id }}" title="Supprimer un membre" href="javascript:void(0);">
                                                 Delete
                                             </a>
                                             
@@ -100,29 +100,29 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Creer un service</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un membre</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
-            <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('teams.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="titre">Titre</label>
-                        <input type="text" class="form-control" id="titre" name="titre" required>
+                        <label for="noms">Noms</label>
+                        <input type="text" class="form-control" id="noms" name="noms" required>
                     </div>
                     <div class="form-group">
-                        <label for="sous_titre">Sous-titre</label>
-                        <input type="text" class="form-control" id="sous_titre" name="sous_titre" required>
+                        <label for="prenoms">Prénoms</label>
+                        <input type="text" class="form-control" id="prenoms" name="prenoms" required>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" required></textarea>
+                        <label for="poste">Poste</label>
+                        <textarea class="form-control" id="poste" name="poste" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="icone">Icone</label>
-                        <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -135,35 +135,35 @@
 </div>
 
 
-@foreach($services as $service)
-<div class="modal fade" id="editService{{ $service->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach($teams as $team)
+<div class="modal fade" id="editMembre{{ $team->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modifier un service</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modifier un membre</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
-            <form action="{{ route('services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('teams.update', $team->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="titre">Titre</label>
-                        <input type="text" class="form-control" id="titre" name="titre" value="{{ $service->titre }}" required>
+                        <label for="noms">Noms</label>
+                        <input type="text" class="form-control" id="noms" name="noms" value="{{ $team->noms }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="sous_titre">Sous-titre</label>
-                        <input type="text" class="form-control" id="sous_titre" name="sous_titre" value="{{ $service->sous_titre }}" required>
+                        <label for="prenoms">Prénoms</label>
+                        <input type="text" class="form-control" id="prenoms" name="prenoms" value="{{ $team->prenoms }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" required>{{ $service->description }}</textarea>
+                        <label for="poste">Poste</label>
+                        <textarea class="form-control" id="poste" name="poste" required>{{ $team->poste }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="icone">Icone</label>
-                        <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -176,23 +176,23 @@
 </div>
 @endforeach
 
-@foreach($services as $service)
-<div class="modal fade" id="deleteService{{ $service->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach($teams as $team)
+<div class="modal fade" id="deleteMembre{{ $team->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Supprimer un service</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Supprimer un membre</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
-            <form action="{{ route('services.destroy', $service->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('teams.destroy', $team->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('DELETE')
                 <div class="modal-body">
                     <div class="form-group">
-                        <h5>Voulez vous supprimer ce service ?</h5>
-                        <label for="titre"> <h3 class="text-center">{{ $service->titre}}</h3>  </label>
+                        <h5>Voulez vous supprimer ce membre ?</h5>
+                        <label for="titre"> <h3 class="text-center">{{ $team->noms}} {{ $team->prenoms}}</h3>  </label>
                     </div>
                 </div>
                 <div class="modal-footer">

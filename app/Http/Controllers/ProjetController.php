@@ -41,8 +41,8 @@ class ProjetController extends Controller
 
             if ($request->hasFile('icone')) {
                 $image = $request->file('icone');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $imagePath = $image->storeAs('icones', $imageName, 'public');
+                $imageName = time() . '-projet.' . $image->getClientOriginalExtension();
+                $imagePath = $image->storeAs('projets_icones', $imageName, 'public');
                 $data['icone'] = $imagePath;
             }
 
@@ -88,8 +88,8 @@ class ProjetController extends Controller
     
             if ($request->hasFile('icone')) {
                 $image = $request->file('icone');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $imagePath = $image->storeAs('icones', $imageName, 'public');
+                $imageName = time()  . '-projet.' . $image->getClientOriginalExtension();
+                $imagePath = $image->storeAs('projets_icones', $imageName, 'public');
                 $data['icone'] = $imagePath;
             }
     
