@@ -14,8 +14,9 @@ class TeamController extends Controller
      */
     public function index()
     {
+        $page_title = "Membres";
         $teams = Team::all();
-        return view('teams.index', compact('teams'));
+        return view('teams.index', compact('teams'))->with(['page_title' => $page_title]);
     }
 
     /**

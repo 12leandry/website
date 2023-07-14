@@ -16,9 +16,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $page_title = "Profile";
         return view('profile.edit', [
             'user' => $request->user(),
-        ]);
+        ])->with(['page_title' => $page_title]);
     }
 
     /**
