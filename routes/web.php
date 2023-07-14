@@ -22,7 +22,7 @@ use App\Http\Controllers\TeamController;
 //     return view('welcome');
 // });
 
-Route::get('/Admin', function () {
+Route::get('/dashboard', function () {
     // dd(auth()->user());
     $page_title = "Dashboard";
     return view('dashboard')->with(['page_title' => $page_title]);
