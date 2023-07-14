@@ -21,7 +21,7 @@ use App\Http\Controllers\ServiceController;
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
+Route::get('/Admin', function () {
     // dd(auth()->user());
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
