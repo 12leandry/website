@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ServiceController;
 
 /*
@@ -38,6 +39,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/add-services', [ServiceController::class, 'store'])->name('services.store');
     Route::patch('/edit-services/{id}', [ServiceController::class, 'update'])->name('services.update');
     Route::delete('/delete-services/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+
+    Route::get('projets', [ProjetController::class, 'index'])->name('projets.index');
+    Route::post('/add-projets', [ProjetController::class, 'store'])->name('projets.store');
+    Route::patch('/edit-projets/{id}', [ProjetController::class, 'update'])->name('projets.update');
+    Route::delete('/delete-projets/{id}', [ProjetController::class, 'destroy'])->name('projets.destroy');
 });
 
 Route::middleware('auth')->group(function () {
