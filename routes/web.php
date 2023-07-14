@@ -24,7 +24,8 @@ use App\Http\Controllers\TeamController;
 
 Route::get('/Admin', function () {
     // dd(auth()->user());
-    return view('dashboard');
+    $page_title = "Dashboard";
+    return view('dashboard')->with(['page_title' => $page_title]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [TestController::class, 'home'])->name('home');

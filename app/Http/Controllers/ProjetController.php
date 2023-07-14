@@ -14,8 +14,9 @@ class ProjetController extends Controller
      */
     public function index()
     {
+        $page_title = "Projets";
         $projets = Projet::all();
-        return view('projets.index', compact('projets'));
+        return view('projets.index', compact('projets'))->with(['page_title' => $page_title]);
     }
 
     /**
