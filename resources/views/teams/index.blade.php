@@ -56,7 +56,7 @@
                                 <td>{{ $team->poste }}</td>
                                 <td>
                                     <div class="td-content customer-name">
-                                        <img src="{{ asset('storage/' . $team->image) }}" alt="Membre-Icon">
+                                        <img class="image_table" src="{{ asset('storage/' . $team->image) }}" alt="Membre-Icon">
                                     </div>
                                 </td>
                                 <td class="text-center">
@@ -123,6 +123,7 @@
                     <div class="form-group">
                         <label for="image">Image</label>
                         <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
+                        <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -206,7 +207,26 @@
 @endforeach
 
 @endsection
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                $('#imagePreview').attr('src', e.target.result).show();
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(document).ready(function () {
+        $("#image").change(function () {
+            readURL(this);
+        });
+    });
+</script>
 <script src="{{asset('dash/plugins/table/datatable/datatables.js')}}"></script>
 <script src="{{asset('dash/assets/js/scrollspyNav.js')}}"></script>
 <script>
@@ -230,7 +250,7 @@
     } );
 </script>
 <style>
-    img {
+    img.image_table {
         width: 35px;
         height: 35px;
         border-radius: 50%;
