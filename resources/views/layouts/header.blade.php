@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('assets')}}/img/test.png" rel="icons">
+  <link rel="icon" type="image/x-icon" href="{{asset('dash/assets/img/test1689447240.ico')}}">
   <link href="{{asset('assets')}}/img/test.png" rel="icons">
 
   <!-- Google Fonts -->
@@ -66,10 +66,10 @@
           <li></li>
           <li></li>
           <li><img src="{{asset('assets')}}/img/flags/cameroon.svg" style="width: 50px; height: 25px; padding-right: 20px  " alt=""> </li>
-          <select >
+          {{-- <select >
             <option  value="Fr">Fr </option>
             <option value="En">En </option>       
-          </select>        
+          </select>         --}}
         </ul>
       </nav>
       <!-- .navbar -->
