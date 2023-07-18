@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('titre');
             $table->string('sous_titre');
+            $table->string('type');
             $table->text('description');
             $table->string('icone');
             $table->softDeletes();

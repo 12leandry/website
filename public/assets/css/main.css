@@ -98,10 +98,21 @@ section {
   }
 }
 
-/* Home Page Custom Header
+.index-page .header {
+  --color-background: rgba(255, 255, 255, 0);
+  --color-secondary: #ffffff;
+  --color-nav: rgba(255, 255, 255, 0.515);
+  --color-nav-hover: #ffffff;
+}
+
+/* Home Page Custom Header on page scroll
 ------------------------------*/
-
-
+.index-page.scrolled .header {
+  --color-background: rgba(0,0,0,0.5);
+  --color-secondary: yellow;
+  --color-nav: pink;
+  --color-nav-hover: #d83535;
+}
 
 
 /*--------------------------------------------------------------
@@ -187,7 +198,7 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
-  padding: 140px 0 60px 0;
+  padding: 140px 0 250px 0;
   min-height: 30vh;
   position: relative;
   background-size: cover;
@@ -285,7 +296,7 @@ section {
   z-index: 999999;
   overflow: hidden;
   background: #fff;
-  transition: all 0.6s ease-out;
+  transition: all 0.0s ease-in;
   justify-content: center;
 }
 
@@ -325,14 +336,17 @@ section {
 # Header
 --------------------------------------------------------------*/
 .header {
-  z-index: 997;
-  position: absolute;
-  padding: 1px 0;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  position: fixed;
-  background: #000;
+  width: 100%;
+  padding: 0;
+  z-index: 10000;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-in-out;
+  height: auto;
 }
 
 .header .logo img {

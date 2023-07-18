@@ -30,11 +30,11 @@ Route::get('/dashboard', function () {
 
 Route::get('/', [TestController::class, 'home'])->name('home');
 Route::get('/Services', [TestController::class, 'Services'])->name('Services');
-Route::get('/Projects', [TestController::class, 'projects'])->name('Projects');
+Route::get('/Projets', [TestController::class, 'projects'])->name('Projets');
 Route::get('/Contact', [TestController::class, 'contact'])->name('Contact');
-Route::get('/About', [TestController::class, 'aboutus'])->name('About');
-Route::get('/Service-details', [TestController::class, 'servicedetail'])->name('Service-details');
-Route::get('/Project-details', [TestController::class, 'projectdetail'])->name('Project-details');
+Route::get('/A-Propos', [TestController::class, 'aboutus'])->name('A-Propos');
+Route::get('/Services/Service-details', [TestController::class, 'servicedetail'])->name('Service-details');
+Route::get('/Projets/Projet-details', [TestController::class, 'projectdetail'])->name('Project-details');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('services', [ServiceController::class, 'index'])->name('services.index');

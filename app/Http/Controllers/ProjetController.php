@@ -80,7 +80,8 @@ class ProjetController extends Controller
         try {
             $data = $request->validate([
                 'titre' => 'required',
-                'sous_titre' => 'required',
+                'sous_titre' => 'required',   
+                'type' => 'required',   
                 'description' => 'required',
                 'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);

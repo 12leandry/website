@@ -44,6 +44,7 @@
                                 <tr>
                                     <th>titre</th>
                                     <th>sous titre</th>
+                                    <th>type</th>
                                     <th>description</th>
                                     <th>icone</th>
                                     <th>Action</th>
@@ -54,10 +55,11 @@
                                 <tr>
                                     <td>{{ $projet->titre }}</td>
                                     <td>{{ $projet->sous_titre }}</td>
+                                    <td>{{ $projet->type }}</td>
                                     <td>{{ $projet->description }}</td>
                                     <td>
                                         <div class="td-content customer-name">
-                                            <img class="image_table" src="{{ asset('storage/' . $projet->icone) }}" alt="Projet-Icon">
+                                            <img class="image_table" src="{{ asset('storage/' . $projet->icone) }}">
                                         </div>
                                     </td>
                                     <td class="text-center">
@@ -83,6 +85,7 @@
                                 <tr>
                                     <th>titre</th>
                                     <th>sous titre</th>
+                                    <th>type</th>
                                     <th>description</th>
                                     <th>icone</th>
                                     <th>Action</th>
@@ -99,40 +102,46 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Creer un projet</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
+        {{-- creation d'un projet --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Creer un projet</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <form action="{{ route('projets.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="titre">Titre</label>
+                            <input type="text" class="form-control" id="titre" name="titre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sous_titre">Sous-titre</label>
+                            <input type="text" class="form-control" id="sous_titre" name="sous_titre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">type</label>
+                            <input type="text" class="form-control" id="type" name="type" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="icone">Icone</label>
+                            <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
+                            <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
+                        <button type="submit" class="btn btn-primary">Créer</button>
+                    </div>
+                </form>
             </div>
-            <form action="{{ route('projets.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="titre">Titre</label>
-                        <input type="text" class="form-control" id="titre" name="titre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sous_titre">Sous-titre</label>
-                        <input type="text" class="form-control" id="sous_titre" name="sous_titre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="icone">Icone</label>
-                        <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
-                        <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Créer</button>
-                </div>
-            </form>
-        </div>
+        {{-- fin de la creation --}}
     </div>
 </div>
 
@@ -140,40 +149,47 @@
 @foreach($projets as $projet)
 <div class="modal fade" id="editProjet{{ $projet->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modifier un projet</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
+        {{-- Modification d'un projet --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modifier un projet</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <form action="{{ route('projets.update', $projet->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PATCH')
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="titre">Titre</label>
+                            <input type="text" class="form-control" id="titre" name="titre" value="{{ $projet->titre }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sous_titre">Sous-titre</label>
+                            <input type="text" class="form-control" id="sous_titre" name="sous_titre" value="{{ $projet->sous_titre }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">type</label>
+                            <input type="text" class="form-control" id="type" name="type" value="{{ $projet->type }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" required>{{ $projet->description }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="icone">Icone</label>
+                            <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*">
+                            <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
+                        <button type="submit" class="btn btn-primary">Modifier</button>
+                    </div>
+                </form>
             </div>
-            <form action="{{ route('projets.update', $projet->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PATCH')
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="titre">Titre</label>
-                        <input type="text" class="form-control" id="titre" name="titre" value="{{ $projet->titre }}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sous_titre">Sous-titre</label>
-                        <input type="text" class="form-control" id="sous_titre" name="sous_titre" value="{{ $projet->sous_titre }}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" required>{{ $projet->description }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="icone">Icone</label>
-                        <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Modifier</button>
-                </div>
-            </form>
-        </div>
+        {{-- Fin de la modification --}}
     </div>
 </div>
 @endforeach
@@ -181,54 +197,60 @@
 @foreach($projets as $projet)
 <div class="modal fade" id="deleteProjet{{ $projet->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Supprimer un projet</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </div>
-            <form action="{{ route('projets.destroy', $projet->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('DELETE')
-                <div class="modal-body">
-                    <div class="form-group">
-                        <h5>Voulez vous supprimer ce projet ?</h5>
-                        <label for="titre"> <h3 class="text-center">{{ $projet->titre}}</h3>  </label>
+        {{-- suppresion d'un projet --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Supprimer un projet</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <form action="{{ route('projets.destroy', $projet->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h5>Voulez vous supprimer ce projet ?</h5>
+                            <label for="titre"> <h3 class="text-center">{{ $projet->titre}}</h3>  </label>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Supprimer</button>
-                </div>
-            </form>
-        </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
+                        <button type="submit" class="btn btn-primary">Supprimer</button>
+                    </div>
+                </form>
+            </div>
+        {{-- Fin de Suppresion --}}
     </div>
 </div>
 @endforeach
 
 @endsection
+ {{-- end of section --}}
 
+ {{-- Javascript start --}}
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+{{-- img loader start --}}
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#imagePreview').attr('src', e.target.result).show();
+                reader.onload = function (e) {
+                    $('#imagePreview').attr('src', e.target.result).show();
+                }
+
+                reader.readAsDataURL(input.files[0]);
             }
-
-            reader.readAsDataURL(input.files[0]);
         }
-    }
 
-    $(document).ready(function () {
-        $("#icone").change(function () {
-            readURL(this);
+        $(document).ready(function () {
+            $("#icone").change(function () {
+                readURL(this);
+            });
         });
-    });
-</script>
+    </script>
+{{-- img loader end --}}
 <script src="{{asset('dash/plugins/table/datatable/datatables.js')}}"></script>
 <script src="{{asset('dash/assets/js/scrollspyNav.js')}}"></script>
 <script>
@@ -251,6 +273,8 @@
         });
     } );
 </script>
+
+{{-- Javascript End --}}
 <style>
     img.image_table {
         width: 35px;
