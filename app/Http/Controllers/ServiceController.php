@@ -15,7 +15,7 @@ class ServiceController extends Controller
     public function index()
     {
         $page_title = "Services";
-        $services = Service::all();
+        $services = Service::paginate(5);
         return view('services.index', compact('services'))->with(['page_title' => $page_title]);
     }
 

@@ -16,7 +16,7 @@ class ProjetController extends Controller
     public function index()
     {
         $page_title = "Projets";
-        $projets = Projet::all();
+        $projets = Projet::paginate(5);
         $services_type = Service::pluck('type', 'id');
         return view('projets.index', compact('projets','services_type'))->with(['page_title' => $page_title]);
     }

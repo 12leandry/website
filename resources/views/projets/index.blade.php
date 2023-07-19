@@ -11,6 +11,7 @@
 <link href="{{asset('dash/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
 
 <link rel="stylesheet" href="{{asset('dash/plugins/editors/markdown/simplemde.min.css')}}">
+<link href="{{asset('dash/assets/css/elements/custom-pagination.css')}}" rel="stylesheet" type="text/css" />
 <!--  END CUSTOM STYLE FILE  -->
 @section('content')
 <div class="layout-px-spacing">
@@ -95,6 +96,30 @@
                             </tfoot>
                         </table>
                     </div>
+                </div>
+                <div class="paginating-container pagination-solid">
+                    <ul class="pagination">
+                        {{-- Lien "Précédent" --}}
+                        @if ($projets->onFirstPage())
+                            <li class="disabled prev"><a href="javascript:void(0);">Prev</a></li>
+                        @else
+                            <li class="prev"><a href="{{ $projets->previousPageUrl() }}">Prev</a></li>
+                        @endif
+                
+                        {{-- Liens de pagination numérotés --}}
+                        @for ($i = 1; $i <= $projets->lastPage(); $i++)
+                            <li @if ($projets->currentPage() === $i) class="active" @endif>
+                                <a href="{{ $projets->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                
+                        {{-- Lien "Suivant" --}}
+                        @if ($projets->hasMorePages())
+                            <li class="next"><a href="{{ $projets->nextPageUrl() }}">Next</a></li>
+                        @else
+                            <li class="disabled next"><a href="javascript:void(0);">Next</a></li>
+                        @endif
+                    </ul>
                 </div>
             </div>
         </div>

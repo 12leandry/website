@@ -9,6 +9,7 @@
 <!--  BEGIN CUSTOM STYLE FILE  -->
 <link href="{{ asset('dash/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('dash/assets/css/components/custom-modal.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{asset('dash/assets/css/elements/custom-pagination.css')}}" rel="stylesheet" type="text/css" />
 <!--  END CUSTOM STYLE FILE  -->
 @section('content')
     <div class="layout-px-spacing">
@@ -105,6 +106,30 @@
                                 </tr>
                             </tfoot>
                         </table>
+                    </div>
+                    <div class="paginating-container pagination-solid">
+                        <ul class="pagination">
+                            {{-- Lien "Précédent" --}}
+                            @if ($teams->onFirstPage())
+                                <li class="disabled prev"><a href="javascript:void(0);">Prev</a></li>
+                            @else
+                                <li class="prev"><a href="{{ $teams->previousPageUrl() }}">Prev</a></li>
+                            @endif
+                    
+                            {{-- Liens de pagination numérotés --}}
+                            @for ($i = 1; $i <= $teams->lastPage(); $i++)
+                                <li @if ($teams->currentPage() === $i) class="active" @endif>
+                                    <a href="{{ $teams->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                    
+                            {{-- Lien "Suivant" --}}
+                            @if ($teams->hasMorePages())
+                                <li class="next"><a href="{{ $teams->nextPageUrl() }}">Next</a></li>
+                            @else
+                                <li class="disabled next"><a href="javascript:void(0);">Next</a></li>
+                            @endif
+                        </ul>
                     </div>
                 </div>
             </div>
