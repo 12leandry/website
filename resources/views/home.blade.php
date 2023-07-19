@@ -218,7 +218,7 @@
                                 <h2>{{ $service->titre }}</h2>
                                 <h3>{{ $service->sous_titre }}</h3>
                                 <p>{{ $service->description }}</p>
-                                <a href="{{ route('Service-details') }} " class="readmore stretched-link">Learn more <i
+                                <a href="{{ route('service-details', $service->id) }} " class="readmore stretched-link">Learn more <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>

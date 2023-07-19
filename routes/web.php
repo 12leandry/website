@@ -33,7 +33,7 @@ Route::get('/Services', [TestController::class, 'Services'])->name('Services');
 Route::get('/Projets', [TestController::class, 'projects'])->name('Projets');
 Route::get('/Contact', [TestController::class, 'contact'])->name('Contact');
 Route::get('/A-Propos', [TestController::class, 'aboutus'])->name('A-Propos');
-Route::get('/Services/Service-details', [TestController::class, 'servicedetail'])->name('Service-details');
+Route::get('/services/service-details/{id}', [ServiceController::class, 'show'])->name('service-details');
 Route::get('/Projets/Projet-details', [TestController::class, 'projectdetail'])->name('Project-details');
 
 Route::middleware(['auth', 'verified'])->group(function () {

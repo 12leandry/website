@@ -13,4 +13,9 @@ class Projet extends Model
     protected $fillable = ['titre', 'sous_titre', 'type', 'description', 'icone'];
 
     protected $dates = ['deleted_at'];
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

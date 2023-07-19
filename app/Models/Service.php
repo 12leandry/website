@@ -13,4 +13,9 @@ class Service extends Model
     protected $fillable = ['titre', 'sous_titre', 'type', 'description', 'icone'];
 
     protected $dates = ['deleted_at'];
+
+    public function projets()
+    {
+        return $this->hasMany(Projet::class);
+    }
 }
