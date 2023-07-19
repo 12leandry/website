@@ -9,6 +9,9 @@
 <!--  BEGIN CUSTOM STYLE FILE  -->
 <link href="{{asset('dash/assets/css/scrollspyNav.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('dash/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="{{asset('dash/plugins/editors/markdown/simplemde.min.css')}}">
+<link href="{{asset('dash/assets/css/elements/custom-pagination.css')}}" rel="stylesheet" type="text/css" />
 <!--  END CUSTOM STYLE FILE  -->
 @section('content')
 <div class="layout-px-spacing">
@@ -55,7 +58,7 @@
                                 <tr>
                                     <td>{{ $projet->titre }}</td>
                                     <td>{{ $projet->sous_titre }}</td>
-                                    <td>{{ $projet->type }}</td>
+                                    <td>{{ $services_type[$projet->service_id] }}</td>
                                     <td>{{ $projet->description }}</td>
                                     <td>
                                         <div class="td-content customer-name">
@@ -94,6 +97,30 @@
                         </table>
                     </div>
                 </div>
+                <div class="paginating-container pagination-solid">
+                    <ul class="pagination">
+                        {{-- Lien "Précédent" --}}
+                        @if ($projets->onFirstPage())
+                            <li class="disabled prev"><a href="javascript:void(0);">Prev</a></li>
+                        @else
+                            <li class="prev"><a href="{{ $projets->previousPageUrl() }}">Prev</a></li>
+                        @endif
+                
+                        {{-- Liens de pagination numérotés --}}
+                        @for ($i = 1; $i <= $projets->lastPage(); $i++)
+                            <li @if ($projets->currentPage() === $i) class="active" @endif>
+                                <a href="{{ $projets->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                
+                        {{-- Lien "Suivant" --}}
+                        @if ($projets->hasMorePages())
+                            <li class="next"><a href="{{ $projets->nextPageUrl() }}">Next</a></li>
+                        @else
+                            <li class="disabled next"><a href="javascript:void(0);">Next</a></li>
+                        @endif
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -122,12 +149,17 @@
                             <input type="text" class="form-control" id="sous_titre" name="sous_titre" required>
                         </div>
                         <div class="form-group">
-                            <label for="type">type</label>
-                            <input type="text" class="form-control" id="type" name="type" required>
+                            <label for="type">Type</label>
+                            <select class="form-control" id="service_id" name="service_id" required>
+                                @foreach ($services_type as $serviceId => $serviceType)
+                                    <option value="{{ $serviceId }}">{{ $serviceType }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" required></textarea>
+                            <textarea class="form-control tinymce-editor" id="demo1" name="description" required>
+                            </textarea>
                         </div>
                         <div class="form-group">
                             <label for="icone">Icone</label>
@@ -170,9 +202,19 @@
                             <input type="text" class="form-control" id="sous_titre" name="sous_titre" value="{{ $projet->sous_titre }}" required>
                         </div>
                         <div class="form-group">
+                            <label for="type">Type</label>
+                            <select class="form-control" id="service_id" name="service_id" required>
+                                @foreach ($services_type as $serviceId => $serviceType)
+                                    <option value="{{ $serviceId }}" {{ $projet->service_id == $serviceId ? 'selected' : '' }}>
+                                        {{ $serviceType }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        {{-- <div class="form-group">
                             <label for="type">type</label>
                             <input type="text" class="form-control" id="type" name="type" value="{{ $projet->type }}" required>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" name="description" required>{{ $projet->description }}</textarea>
@@ -228,6 +270,25 @@
 @endsection
  {{-- end of section --}}
 
+    <script src="{{asset('dash/plugins/editors/markdown/simplemde.min.js')}}"></script>
+    <script src="{{asset('dash/plugins/editors/markdown/custom-markdown.js')}}"></script>
+    <script>
+        // Initialiser TinyMCE sur le champ textarea avec la classe tinymce-editor
+        tinymce.init({
+            selector: '.tinymce-editor', // Utiliser la classe tinymce-editor
+            // Autres options de configuration...
+        });
+    </script>
+    <script>
+        new SimpleMDE({
+        element: document.getElementById("demo1"),
+        spellChecker: false,
+        autosave: {
+            enabled: true,
+            unique_id: "demo1",
+        },
+    });
+    </script>
  {{-- Javascript start --}}
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 {{-- img loader start --}}

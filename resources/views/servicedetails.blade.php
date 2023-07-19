@@ -40,12 +40,11 @@
 
                     <div class="col-lg-8">
                         <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
-                        <h3>Temporibus et in vero dicta aut eius lidero plastis trand lined voluptas dolorem ut voluptas
+                        <h3>
+                            {{$service->titre}}
                         </h3>
                         <p>
-                            Blanditiis voluptate odit ex error ea sed officiis deserunt. Cupiditate non consequatur et
-                            doloremque consequuntur. Accusantium labore reprehenderit error temporibus saepe perferendis
-                            fuga doloribus vero. Qui omnis quo sit. Dolorem architecto eum et quos deleniti officia qui.
+                            {{$service->sous_titre}}
                         </p>
                         <ul>
                             <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
@@ -58,12 +57,7 @@
                             optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
                         </p>
                         <p>
-                            Sunt rem odit accusantium omnis perspiciatis officia. Laboriosam aut consequuntur recusandae
-                            mollitia doloremque est architecto cupiditate ullam. Quia est ut occaecati fuga. Distinctio ex
-                            repellendus eveniet velit sint quia sapiente cumque. Et ipsa perferendis ut nihil. Laboriosam
-                            vel voluptates tenetur nostrum. Eaque iusto cupiditate et totam et quia dolorum in. Sunt
-                            molestiae ipsum at consequatur vero. Architecto ut pariatur autem ad non cumque nesciunt qui
-                            maxime. Sunt eum quia impedit dolore alias explicabo ea.
+                            {{$service->description}}
                         </p>
                     </div>
 
@@ -72,6 +66,51 @@
             </div>
         </section>
         <!-- End Service Details Section -->
+
+        <!-- ======= START SECTION  PROJET  ======= -->
+        <section id="recent-blog-posts" class="recent-blog-posts">
+            <div class="container" data-aos="fade-up">
+
+
+
+                <div class=" section-header">
+                    <h2>Nos projets</h2>
+                    <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
+                </div>
+                <div class="row gy-5">
+                    {{-- {{ dd($service->projets) }} --}}
+                    @foreach ($service->projets as $projet)
+                        <div class="col-xl-3 col-md-6">
+                            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
+
+                                <div class="post-img position-relative overflow-hidden">
+                                    <img src="{{ asset('storage/' . $projet->icone ) }}" class="img-fluid" alt=""
+                                        style="width: 250px; height: 250px">
+                                </div>
+
+                                <div class="post-content d-flex flex-column">
+
+                                    <h3 class="post-title">{{ $projet->titre  }}</h3>
+                                    <h3 class="post-title">{{ $projet->sous_titre  }}</h3>
+
+                                    <div class="meta d-flex align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <hr>
+                                            <i class="bi bi-person"></i> <span class="ps-2">{{ $projet->description  }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- End post item -->
+                    @endforeach
+
+                </div>
+
+            </div>
+        </section>
+        <!-- ======= END SECTION PROJET ======= -->
+
         {{-- collaborateur  start--}}
 
               @include('teams')

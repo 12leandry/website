@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -16,7 +17,9 @@ class TestController extends Controller
     }
     public function projects()
     {
-        return view('project');
+        $services_type = Service::pluck('type', 'id');
+        // return view('projets.index', compact('projets','services_type'))->with(['page_title' => $page_title]);
+        return view('project', compact('services_type'));
     }
     public function contact()
     {
