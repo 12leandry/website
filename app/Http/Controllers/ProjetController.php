@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Projet;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,8 @@ class ProjetController extends Controller
     {
         $page_title = "Projets";
         $projets = Projet::all();
-        return view('projets.index', compact('projets'))->with(['page_title' => $page_title]);
+        $services_type = Service::pluck('type', 'id');
+        return view('projets.index', compact('projets','services_type'))->with(['page_title' => $page_title]);
     }
 
     /**
@@ -37,6 +39,7 @@ class ProjetController extends Controller
                 'titre' => 'required',
                 'sous_titre' => 'required',
                 'description' => 'required',
+                'service_id' => 'required',
                 'icone' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
@@ -81,7 +84,7 @@ class ProjetController extends Controller
             $data = $request->validate([
                 'titre' => 'required',
                 'sous_titre' => 'required',   
-                'type' => 'required',   
+                'service_id' => 'required',  
                 'description' => 'required',
                 'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);

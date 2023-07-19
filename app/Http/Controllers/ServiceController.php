@@ -64,7 +64,6 @@ class ServiceController extends Controller
     {
         $service = Service::with('projets')->findOrFail($id);
         return view('servicedetails', compact('service'));
-
     }
 
     /**

@@ -16,12 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('service_id')->nullable();
             $table->string('titre');
             $table->string('sous_titre');
-            $table->string('type');
             $table->text('description');
             $table->string('icone');
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
+            $table->foreign('service_id')->references('id')->on('services');
         });
     }
 

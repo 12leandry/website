@@ -55,7 +55,7 @@
                                 <tr>
                                     <td>{{ $projet->titre }}</td>
                                     <td>{{ $projet->sous_titre }}</td>
-                                    <td>{{ $projet->type }}</td>
+                                    <td>{{ $services_type[$projet->service_id] }}</td>
                                     <td>{{ $projet->description }}</td>
                                     <td>
                                         <div class="td-content customer-name">
@@ -122,8 +122,12 @@
                             <input type="text" class="form-control" id="sous_titre" name="sous_titre" required>
                         </div>
                         <div class="form-group">
-                            <label for="type">type</label>
-                            <input type="text" class="form-control" id="type" name="type" required>
+                            <label for="type">Type</label>
+                            <select class="form-control" id="service_id" name="service_id" required>
+                                @foreach ($services_type as $serviceId => $serviceType)
+                                    <option value="{{ $serviceId }}">{{ $serviceType }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
@@ -170,9 +174,19 @@
                             <input type="text" class="form-control" id="sous_titre" name="sous_titre" value="{{ $projet->sous_titre }}" required>
                         </div>
                         <div class="form-group">
+                            <label for="type">Type</label>
+                            <select class="form-control" id="service_id" name="service_id" required>
+                                @foreach ($services_type as $serviceId => $serviceType)
+                                    <option value="{{ $serviceId }}" {{ $projet->service_id == $serviceId ? 'selected' : '' }}>
+                                        {{ $serviceType }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        {{-- <div class="form-group">
                             <label for="type">type</label>
                             <input type="text" class="form-control" id="type" name="type" value="{{ $projet->type }}" required>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" name="description" required>{{ $projet->description }}</textarea>
