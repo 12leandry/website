@@ -24,10 +24,9 @@
                     {{-- filter project start --}}
                     <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
                         <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-remodeling">Remodeling</li>
-                        <li data-filter=".filter-construction">Construction</li>
-                        <li data-filter=".filter-repairs">Repairs</li>
-                        <li data-filter=".filter-design">Design</li>
+                        @foreach ($services_type as $serviceId => $serviceType)
+                            <li data-filter=".filter-{{ $serviceId }}">{{ $serviceType }}</li>
+                        @endforeach
                     </ul>
                     <!-- End Projects Filters -->
 
@@ -39,7 +38,7 @@
                         @endphp
 
                         @foreach ($projet as $projet)
-                            <div class="col-lg-4 col-md-6 portfolio-item  ">
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $projet->service_id }}"">
                                 <div class="portfolio-content h-100">
                                     <img src="{{ asset('storage/' . $projet->icone) }}" class="img-fluid" alt=""
                                         style="width: 400px; height: 200px">
