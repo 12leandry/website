@@ -1397,10 +1397,12 @@ section {
 }
 
 .team .member .member-img {
-  margin: 0 80px;
+  margin: 0 40px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
+  width: 130px;
+  align-items: center;
 }
 
 @media (max-width: 1024px) {
