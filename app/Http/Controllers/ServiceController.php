@@ -15,7 +15,7 @@ class ServiceController extends Controller
     public function index()
     {
         $page_title = "Services";
-        $services = Service::all();
+        $services = Service::paginate(5);
         return view('services.index', compact('services'))->with(['page_title' => $page_title]);
     }
 
@@ -36,6 +36,7 @@ class ServiceController extends Controller
             $data = $request->validate([
                 'titre' => 'required',
                 'sous_titre' => 'required',
+                'type' => 'required',
                 'description' => 'required',
                 'icone' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
@@ -59,9 +60,10 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show($id)
     {
-        //
+        $service = Service::with('projets')->findOrFail($id);
+        return view('servicedetails', compact('service'));
     }
 
     /**
@@ -81,6 +83,7 @@ class ServiceController extends Controller
             $data = $request->validate([
                 'titre' => 'required',
                 'sous_titre' => 'required',
+                'type' => 'required',
                 'description' => 'required',
                 'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
@@ -123,5 +126,15 @@ class ServiceController extends Controller
             $errorMessage = $e->getMessage();
             return redirect()->back()->withErrors(['error' => $errorMessage]);
         }
+    }
+    public function render()
+    {
+        $service = Services::where(['id'=>$this->user_uuid])->first();
+        $post = Post::where(['user_id'=>$user->id, 'uuid'=>$this->post_uuid])->with(['user', 'commentss' => function ($query) {
+            $query->where('status', 'published'); }])->first();
+        // dd($user);
+        return view('livewire.single-post', [
+            'post' => $post
+        ]);
     }
 }

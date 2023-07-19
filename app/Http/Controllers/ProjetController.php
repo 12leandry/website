@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Projet;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,8 +16,9 @@ class ProjetController extends Controller
     public function index()
     {
         $page_title = "Projets";
-        $projets = Projet::all();
-        return view('projets.index', compact('projets'))->with(['page_title' => $page_title]);
+        $projets = Projet::paginate(5);
+        $services_type = Service::pluck('type', 'id');
+        return view('projets.index', compact('projets','services_type'))->with(['page_title' => $page_title]);
     }
 
     /**
@@ -37,6 +39,9 @@ class ProjetController extends Controller
                 'titre' => 'required',
                 'sous_titre' => 'required',
                 'description' => 'required',
+                'service_id' => 'required',
+                'client_name' => 'required',
+                'projet_date' => 'required',
                 'icone' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
@@ -59,9 +64,10 @@ class ProjetController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Projet $projet)
+    public function show($id)
     {
-        //
+        $projet = Projet::with('service')->findOrFail($id);
+        return view('projectdetails', compact('projet'));
     }
 
     /**
@@ -80,8 +86,11 @@ class ProjetController extends Controller
         try {
             $data = $request->validate([
                 'titre' => 'required',
-                'sous_titre' => 'required',
+                'sous_titre' => 'required',   
+                'service_id' => 'required',  
                 'description' => 'required',
+                'client_name' => 'required',
+                'projet_date' => 'required',
                 'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
     

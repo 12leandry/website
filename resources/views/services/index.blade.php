@@ -9,6 +9,7 @@
 <!--  BEGIN CUSTOM STYLE FILE  -->
 <link href="{{asset('dash/assets/css/scrollspyNav.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('dash/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('dash/assets/css/elements/custom-pagination.css')}}" rel="stylesheet" type="text/css" />
 <!--  END CUSTOM STYLE FILE  -->
 @section('content')
 <div class="layout-px-spacing">
@@ -43,6 +44,7 @@
                             <tr>
                                 <th>titre</th>
                                 <th>sous titre</th>
+                                <th>type</th>
                                 <th>description</th>
                                 <th>icone</th>
                                 <th>Action</th>
@@ -53,6 +55,7 @@
                             <tr>
                                 <td>{{ $service->titre }}</td>
                                 <td>{{ $service->sous_titre }}</td>
+                                <td>{{ $service->type }}</td>
                                 <td>{{ $service->description }}</td>
                                 <td>
                                     <div class="td-content customer-name">
@@ -83,12 +86,37 @@
                             <tr>
                                 <th>titre</th>
                                 <th>sous titre</th>
+                                <th>type</th>
                                 <th>description</th>
                                 <th>icone</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>
+                </div>
+                <div class="paginating-container pagination-solid">
+                    <ul class="pagination">
+                        {{-- Lien "Précédent" --}}
+                        @if ($services->onFirstPage())
+                            <li class="disabled prev"><a href="javascript:void(0);">Prev</a></li>
+                        @else
+                            <li class="prev"><a href="{{ $services->previousPageUrl() }}">Prev</a></li>
+                        @endif
+                
+                        {{-- Liens de pagination numérotés --}}
+                        @for ($i = 1; $i <= $services->lastPage(); $i++)
+                            <li @if ($services->currentPage() === $i) class="active" @endif>
+                                <a href="{{ $services->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+                
+                        {{-- Lien "Suivant" --}}
+                        @if ($services->hasMorePages())
+                            <li class="next"><a href="{{ $services->nextPageUrl() }}">Next</a></li>
+                        @else
+                            <li class="disabled next"><a href="javascript:void(0);">Next</a></li>
+                        @endif
+                    </ul>
                 </div>
             </div>
         </div>
@@ -98,40 +126,46 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Creer un service</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </div>
-            <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="titre">Titre</label>
-                        <input type="text" class="form-control" id="titre" name="titre" required>
+          {{-- creation d'un service  --}}
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Creer un service</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <label for="sous_titre">Sous-titre</label>
-                        <input type="text" class="form-control" id="sous_titre" name="sous_titre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="icone">Icone</label>
-                        <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
-                        <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
-                    </div>
+                    <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="titre">Titre</label>
+                                <input type="text" class="form-control" id="titre" name="titre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sous_titre">Sous-titre</label>
+                                <input type="text" class="form-control" id="sous_titre" name="sous_titre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">type</label>
+                                <input type="text" class="form-control" id="type" name="type" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" name="description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="icone">Icone</label>
+                                <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
+                                <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
+                            <button type="submit" class="btn btn-primary">Créer</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Créer</button>
-                </div>
-            </form>
-        </div>
+         {{-- fin de creation de service --}}
     </div>
 </div>
 
@@ -139,40 +173,47 @@
 @foreach($services as $service)
 <div class="modal fade" id="editService{{ $service->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modifier un service</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
+         {{-- modifier un service --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modifier un service</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <form action="{{ route('services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PATCH')
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="titre">Titre</label>
+                            <input type="text" class="form-control" id="titre" name="titre" value="{{ $service->titre }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sous_titre">Sous-titre</label>
+                            <input type="text" class="form-control" id="sous_titre" name="sous_titre" value="{{ $service->sous_titre }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">type</label>
+                            <input type="text" class="form-control" id="type" name="type" value="{{ $service->type }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" required>{{ $service->description }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="icone">Icone</label>
+                            <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
+                            <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
+                        <button type="submit" class="btn btn-primary">Modifier</button>
+                    </div>
+                </form>
             </div>
-            <form action="{{ route('services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PATCH')
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="titre">Titre</label>
-                        <input type="text" class="form-control" id="titre" name="titre" value="{{ $service->titre }}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sous_titre">Sous-titre</label>
-                        <input type="text" class="form-control" id="sous_titre" name="sous_titre" value="{{ $service->sous_titre }}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" required>{{ $service->description }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="icone">Icone</label>
-                        <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Modifier</button>
-                </div>
-            </form>
-        </div>
+        {{-- fin de modification --}}
     </div>
 </div>
 @endforeach
@@ -180,28 +221,30 @@
 @foreach($services as $service)
 <div class="modal fade" id="deleteService{{ $service->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Supprimer un service</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </div>
-            <form action="{{ route('services.destroy', $service->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('DELETE')
-                <div class="modal-body">
-                    <div class="form-group">
-                        <h5>Voulez vous supprimer ce service ?</h5>
-                        <label for="titre"> <h3 class="text-center">{{ $service->titre}}</h3>  </label>
+        {{-- supprimer un service --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Supprimer un service</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <form action="{{ route('services.destroy', $service->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h5>Voulez vous supprimer ce service ?</h5>
+                            <label for="titre"> <h3 class="text-center">{{ $service->titre}}</h3>  </label>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Supprimer</button>
-                </div>
-            </form>
-        </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Annuler</button>
+                        <button type="submit" class="btn btn-primary">Supprimer</button>
+                    </div>
+                </form>
+            </div>
+        {{-- fin de suppression --}}
     </div>
 </div>
 @endforeach

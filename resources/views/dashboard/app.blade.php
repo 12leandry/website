@@ -22,8 +22,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Sales Admin | CORK - Multipurpose Bootstrap Dashboard Template </title>
-    <link rel="icon" type="image/x-icon" href="{{asset('dash/assets/img/favicon.ico')}}"/>
+    <title>{{config('app.name')}} </title>
+    <link rel="icon" type="image/x-icon" href="{{asset('dash/assets/img/test1689447240.ico')}}">
     <link href="{{asset('dash/assets/css/loader.css')}}" rel="stylesheet" type="text/css" />
     <script src="{{asset('dash/assets/js/loader.js')}}"></script>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->

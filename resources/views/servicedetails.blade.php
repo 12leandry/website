@@ -1,0 +1,124 @@
+@extends('layouts.header', ['title' => 'Services', 'activeLink' => ' '])
+
+@section('content')
+    <main id="main">
+
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+            <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+                <h2>Service Details</h2>
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>Service Details</li>
+                </ol>
+
+            </div>
+        </div><!-- End Breadcrumbs -->
+
+        <!-- ======= Service Details Section ======= -->
+        <section id="service-details" class="service-details">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4">
+                        <div class="services-list">
+                            <a href="#" class="active">Remodeling</a>
+                            <a href="#">Construction</a>
+                            <a href="#">Product Management</a>
+                            <a href="#">Repairs</a>
+                            <a href="#">Design</a>
+                        </div>
+
+                        <h4>Enim qui eos rerum in delectus</h4>
+                        <p>Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non
+                            occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi
+                            rerum.</p>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
+                        <h3>
+                            {{$service->titre}}
+                        </h3>
+                        <p>
+                            {{$service->sous_titre}}
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
+                            <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt
+                                    voluptatibus.</span></li>
+                            <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
+                        </ul>
+                        <p>
+                            Est reprehenderit voluptatem necessitatibus asperiores neque sed ea illo. Deleniti quam sequi
+                            optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
+                        </p>
+                        <p>
+                            {{$service->description}}
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Service Details Section -->
+
+        <!-- ======= START SECTION  PROJET  ======= -->
+        <section id="recent-blog-posts" class="recent-blog-posts">
+            <div class="container" data-aos="fade-up">
+
+
+
+                <div class=" section-header">
+                    <h2>Nos projets</h2>
+                    <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
+                </div>
+                <div class="row gy-5">
+                    {{-- {{ dd($service->projets) }} --}}
+                    @foreach ($service->projets as $projet)
+                        <div class="col-xl-3 col-md-6">
+                            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
+
+                                <div class="post-img position-relative overflow-hidden">
+                                    <img src="{{ asset('storage/' . $projet->icone ) }}" class="img-fluid" alt=""
+                                        style="width: 250px; height: 250px">
+                                </div>
+
+                                <div class="post-content d-flex flex-column">
+
+                                    <h3 class="post-title">{{ $projet->titre  }}</h3>
+                                    <h3 class="post-title">{{ $projet->sous_titre  }}</h3>
+
+                                    <div class="meta d-flex align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <hr>
+                                            <i class="bi bi-person"></i> <span class="ps-2">{{ $projet->description  }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- End post item -->
+                    @endforeach
+
+                </div>
+
+            </div>
+        </section>
+        <!-- ======= END SECTION PROJET ======= -->
+
+        {{-- collaborateur  start--}}
+
+              @include('teams')
+
+        {{-- collaborateur end --}}
+
+    </main>
+    <!-- End #main -->
+    @include('layouts.footer')
+    @include('scroll')
+@endsection

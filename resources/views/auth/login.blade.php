@@ -20,11 +20,15 @@
     
 
     <div class="form-container">
-        <div class="form-form">
+        <div class="form-form ">
             <div class="form-form-wrap">
                 <div class="form-container">
-                    <div class="form-content">
-
+                    <div class="form-content ">
+                        <a href="#" class="logo d-flex align-items-center">
+                            <!-- Uncomment the line below if you also wish to use an image logo -->
+                             <img src="{{asset('assets')}}/img/testlogo.svg"style="width: 100%; height: 100%; align-item: center;" alt="">
+                            {{-- <h1>UpConstruction<span>.</span></h1> --}}
+                          </a>
                         <h1 class="">Log In to <a href="index.html"><span class="brand-name">Dashboard</span></a></h1>
                         @if($errors->any())
                             @foreach($errors->all() as $error)
@@ -77,16 +81,22 @@
 
                             </div>
                         </form>                        
-                        <p class="terms-conditions">© 2019 All Rights Reserved. <a href="index.html">CORK</a> is a product of Designreset. <a href="javascript:void(0);">Cookie Preferences</a>, <a href="javascript:void(0);">Privacy</a>, and <a href="javascript:void(0);">Terms</a>.</p>
-
+                        <div class="footer-legal text-center position-relative">
+                            <div class="container">
+                              <div class="copyright">
+                                &copy; Copyright <strong><span style="color: blue">TestSarl</span></strong>. All Rights Reserved
+                              </div>
+                              <div class="credits">
+                                <!-- All the links in the footer should remain intact. -->
+                                Designed by <a target="_blanc" href="https://zonite.org/" style="color: blue">Zonite Sarl</a>
+                              </div>
+                            </div>
+                          </div>
                     </div>                    
                 </div>
             </div>
         </div>
-        <div class="form-image">
-            <div class="l-image">
-            </div>
-        </div>
+    
     </div>
 
     
