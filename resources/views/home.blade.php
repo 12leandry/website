@@ -462,7 +462,7 @@
                                         <a href="{{ asset('storage/' . $projet->icone) }}" title="Remodeling 1"
                                             data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
                                                 class="bi bi-zoom-in"></i></a>
-                                        <a href="{{ route('Project-details') }}" title="More Details"
+                                        <a href="{{ route('project-details', $projet->id) }}" title="More Details"
                                             class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>

@@ -9,6 +9,8 @@
 <!--  BEGIN CUSTOM STYLE FILE  -->
 <link href="{{asset('dash/assets/css/scrollspyNav.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('dash/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="{{asset('dash/plugins/editors/markdown/simplemde.min.css')}}">
 <!--  END CUSTOM STYLE FILE  -->
 @section('content')
 <div class="layout-px-spacing">
@@ -131,7 +133,8 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" required></textarea>
+                            <textarea class="form-control tinymce-editor" id="demo1" name="description" required>
+                            </textarea>
                         </div>
                         <div class="form-group">
                             <label for="icone">Icone</label>
@@ -242,6 +245,25 @@
 @endsection
  {{-- end of section --}}
 
+    <script src="{{asset('dash/plugins/editors/markdown/simplemde.min.js')}}"></script>
+    <script src="{{asset('dash/plugins/editors/markdown/custom-markdown.js')}}"></script>
+    <script>
+        // Initialiser TinyMCE sur le champ textarea avec la classe tinymce-editor
+        tinymce.init({
+            selector: '.tinymce-editor', // Utiliser la classe tinymce-editor
+            // Autres options de configuration...
+        });
+    </script>
+    <script>
+        new SimpleMDE({
+        element: document.getElementById("demo1"),
+        spellChecker: false,
+        autosave: {
+            enabled: true,
+            unique_id: "demo1",
+        },
+    });
+    </script>
  {{-- Javascript start --}}
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 {{-- img loader start --}}

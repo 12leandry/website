@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('titre');
             $table->string('sous_titre');
             $table->text('description');
+            $table->text('client_name');
+            $table->date('projet_date');
             $table->string('icone');
             $table->softDeletes();
             $table->timestamps();

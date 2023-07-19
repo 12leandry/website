@@ -40,6 +40,8 @@ class ProjetController extends Controller
                 'sous_titre' => 'required',
                 'description' => 'required',
                 'service_id' => 'required',
+                'client_name' => 'required',
+                'projet_date' => 'required',
                 'icone' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
@@ -62,9 +64,10 @@ class ProjetController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Projet $projet)
+    public function show($id)
     {
-        //
+        $projet = Projet::with('service')->findOrFail($id);
+        return view('projectdetails', compact('projet'));
     }
 
     /**
@@ -86,6 +89,8 @@ class ProjetController extends Controller
                 'sous_titre' => 'required',   
                 'service_id' => 'required',  
                 'description' => 'required',
+                'client_name' => 'required',
+                'projet_date' => 'required',
                 'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
     
