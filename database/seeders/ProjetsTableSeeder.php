@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +26,7 @@ class ProjetsTableSeeder extends Seeder
                 'sous_titre' => 'Sous-titre du projet 1',
                 'service_id' => $existingServices->random()->id,
                 'client_name' => 'DOVV',
-                'projet_date' => '2023-02-12',
+                'projet_date' => Carbon::now(),
                 'description' => 'Description du projet 1',
                 'icone' => 'icone1.png',
             ],
@@ -35,7 +36,7 @@ class ProjetsTableSeeder extends Seeder
                 'sous_titre' => 'Sous-titre du projet 2',
                 'service_id' => $existingServices->random()->id,
                 'client_name' => 'Santa lucia',
-                'projet_date' => '2023-03-12',
+                'projet_date' => Carbon::now(),
                 'description' => 'Description du projet 2',
                 'icone' => 'icone2.png',
             ],
@@ -45,7 +46,7 @@ class ProjetsTableSeeder extends Seeder
                 'sous_titre' => 'Sous-titre du projet 3',
                 'service_id' => $existingServices->random()->id,
                 'client_name' => 'Carrefour',
-                'projet_date' => '2023-04-12',
+                'projet_date' => Carbon::now(),
                 'description' => 'Description du projet 3',
                 'icone' => 'icone3.png',
             ],
@@ -55,7 +56,7 @@ class ProjetsTableSeeder extends Seeder
                 'sous_titre' => 'Sous-titre du projet 4',
                 'service_id' =>  $existingServices->random()->id,
                 'client_name' => 'Facebook',
-                'projet_date' => '2023-05-12',
+                'projet_date' => Carbon::now(),
                 'description' => 'Description du projet 4',
                 'icone' => 'icone4.png',
             ],
@@ -65,7 +66,7 @@ class ProjetsTableSeeder extends Seeder
                 'sous_titre' => 'Sous-titre du projet 5',
                 'service_id' =>  $existingServices->random()->id,
                 'client_name' => 'Twitter',
-                'projet_date' => '2023-06-12',
+                'projet_date' => Carbon::now(),
                 'description' => 'Description du projet 5',
                 'icone' => 'icone5.png',
             ],
@@ -75,7 +76,7 @@ class ProjetsTableSeeder extends Seeder
                 'sous_titre' => 'Sous-titre du projet 6',
                 'service_id' => $existingServices->random()->id,
                 'client_name' => 'Instagram',
-                'projet_date' => '2023-07-12',
+                'projet_date' => Carbon::now(),
                 'description' => 'Description du projet 6',
                 'icone' => 'icone6.png',
             ],

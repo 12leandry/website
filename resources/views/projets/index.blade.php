@@ -157,6 +157,14 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="client_name">Noms du client</label>
+                            <input type="text" class="form-control" id="client_name" name="client_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projet_date">Date du projet</label>
+                            <input type="date" class="form-control" id="projet_date" name="projet_date" required>
+                        </div>
+                        <div class="form-group">
                             <label for="description">Description</label>
                             <textarea class="form-control tinymce-editor" id="demo1" name="description" required>
                             </textarea>
@@ -211,10 +219,14 @@
                                 @endforeach
                             </select>
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="type">type</label>
-                            <input type="text" class="form-control" id="type" name="type" value="{{ $projet->type }}" required>
-                        </div> --}}
+                        <div class="form-group">
+                            <label for="client_name">Noms du client</label>
+                            <input type="text" class="form-control" id="client_name" name="client_name" value="{{ $projet->client_name }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projet_date">Date du projet</label>
+                            <input type="date" class="form-control" id="projet_date" name="projet_date" value="{{ $projet->projet_date }}" required>
+                        </div>
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" name="description" required>{{ $projet->description }}</textarea>
