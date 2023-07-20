@@ -1,46 +1,46 @@
- <!-- =======sECTION  nos collaborateurs  ======= -->
- <section id="recent-blog-posts" class="recent-blog-posts">
+ <!-- ======= Teams Section ======= -->
+ <section id="team" class="team section-bg">
     <div class="container" data-aos="fade-up">
 
-
-
-        <div class=" section-header">
-            <h2>Nos collaborateurs</h2>
-            <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
+        <div class="section-header">
+            <h2>Teams</h2>
+            <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem
+                uia reprehenderit sunt deleniti</p>
         </div>
         <div class="row gy-5">
             @php
                 $teams = App\Models\team::all();
             @endphp
 
-            @foreach ($teams as $team)
-                <div class="col-xl-3 col-md-6">
-                    <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
-
-                        <div class="post-img position-relative overflow-hidden">
-                            <img src="{{ asset('storage/' . $team->image) }}" class="img-fluid" alt=""
-                                style="width: 250px; height: 250px">
-                        </div>
-
-                        <div class="post-content d-flex flex-column">
-
-                            <h3 class="post-title">{{ $team->noms }}</h3>
-                            <h3 class="post-title">{{ $team->prenoms }}</h3>
-
-                            <div class="meta d-flex align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <hr>
-                                    <i class="bi bi-person"></i> <span class="ps-2">{{ $team->poste }}</span>
+            <div class="slides-2 swiper">
+                <div class="swiper-wrapper">
+                    @foreach ($teams as $team)
+                        <div class="swiper-slide">
+                            <div class="col-lg-4 col-md-4 member postion-relative" data-aos="fade-up"
+                                data-aos-delay="100">
+                                <div class="member-img ">
+                                    <img src="{{ asset('storage/' . $team->image) }}" class="img-fluid"
+                                        alt="" style=" height: 200px;">
+                                    {{-- <div class="social">
+                                        <a href="#"><i class="bi bi-twitter"></i></a>
+                                        <a href="#"><i class="bi bi-facebook"></i></a>
+                                        <a href="#"><i class="bi bi-instagram"></i></a>
+                                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                                    </div> --}}
+                                </div>
+                                <div class="member-info text-center">
+                                    <h4>{{ $team->noms }}</h4>
+                                    <span>{{ $team->poste }}</span>
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-                </div><!-- End post item -->
-            @endforeach
-
+                    @endforeach
+                    <!-- End testimonial item -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
 
     </div>
 </section>
-<!-- Fin de  Section de collaborateur -->
+<!-- End Teams Section -->

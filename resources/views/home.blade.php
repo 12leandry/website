@@ -433,32 +433,34 @@
         <!-- ======= Our Projects Section ======= -->
         <section id="projects" class="projects">
             <div class="container" data-aos="fade-up">
-
+                @php
+                    $projet = App\Models\projet::all();
+                    $services_type = App\Models\Service::pluck('type', 'id');
+                @endphp
                 <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
                     data-portfolio-sort="original-order">
-
+                    {{-- filter project start --}}
                     <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
                         <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-remodeling">Remodeling</li>
-                        <li data-filter=".filter-construction">Construction</li>
-                        <li data-filter=".filter-repairs">Repairs</li>
-                        <li data-filter=".filter-design">Design</li>
-                    </ul><!-- End Projects Filters -->
+                        @foreach ($services_type as $serviceId => $serviceType)
+                            <li data-filter=".filter-{{ $serviceId }}">{{ $serviceType }}</li>
+                        @endforeach
+                    </ul>
+                    <!-- End Projects Filters -->
 
+                    {{-- Project item start --}}
                     <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-                        @php
-                            $projet = App\Models\projet::all();
-                        @endphp
+                        
 
                         @foreach ($projet as $projet)
-                            <div class="col-lg-4 col-md-6 portfolio-item  ">
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $projet->service_id }}"">
                                 <div class="portfolio-content h-100">
-                                    <img src="{{ asset('storage/' . $projet->icone) }}" class="img-fluid"
-                                        alt="">
+                                    <img src="{{ asset('storage/' . $projet->icone) }}" class="img-fluid" alt=""
+                                        style="width: 400px; height: 200px">
                                     <div class="portfolio-info">
                                         <h4>{{ $projet->titre }}</h4>
-                                        <p>{{ $projet->description }}</p>
+                                        <p>{{ $projet->Sous_titre }}</p>
                                         <a href="{{ asset('storage/' . $projet->icone) }}" title="Remodeling 1"
                                             data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
                                                 class="bi bi-zoom-in"></i></a>
@@ -470,152 +472,21 @@
                         @endforeach
                         <!-- End Projects Item -->
 
-                    </div><!-- End Projects Container -->
-                </div>
-            </div>
-        </section><!-- End Our Projects Section -->
-
-
-        <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials section-bg">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>Témoignages</h2>
-                    <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem
-                        uia reprehenderit sunt deleniti</p>
-                </div>
-
-                <div class="slides-2 swiper">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('assets') }}/img/testimonials/testimonials-1.jpg"
-                                        class="testimonial-img" alt="">
-                                    <h3>Saul Goodman</h3>
-                                    <h4>Ceo &amp; Founder</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                        rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                        risus at semper.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('assets') }}/img/testimonials/testimonials-2.jpg"
-                                        class="testimonial-img" alt="">
-                                    <h3>Sara Wilsson</h3>
-                                    <h4>Designer</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                        cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                        legam anim culpa.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('assets') }}/img/testimonials/testimonials-3.jpg"
-                                        class="testimonial-img" alt="">
-                                    <h3>Jena Karlis</h3>
-                                    <h4>Store Owner</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem
-                                        veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint
-                                        minim.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('assets') }}/img/testimonials/testimonials-4.jpg"
-                                        class="testimonial-img" alt="">
-                                    <h3>Matt Brandon</h3>
-                                    <h4>Freelancer</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
-                                        fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
-                                        dolore labore illum veniam.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset('assets') }}/img/testimonials/testimonials-5.jpg"
-                                        class="testimonial-img" alt="">
-                                    <h3>John Larson</h3>
-                                    <h4>Entrepreneur</h4>
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
-                                        veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
-                                        culpa fore nisi cillum quid.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
                     </div>
-                    <div class="swiper-pagination"></div>
+
                 </div>
 
             </div>
         </section>
-        <!-- End Testimonials Section -->
+        <!-- End Our Projects Section -->
 
-       {{-- teams start --}}
+
+       
+
+        {{-- teams start --}}
         @include('teams')
 
-       {{-- teams end --}}
+        {{-- teams end --}}
 
     </main><!-- End #main -->
     <!-- End Footer -->

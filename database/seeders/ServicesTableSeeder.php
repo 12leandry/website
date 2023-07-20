@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,6 +16,7 @@ class ServicesTableSeeder extends Seeder
     {
         $services = [
             [
+                'id' => Uuid::uuid4()->toString(),
                 'titre' => 'Service 1',
                 'sous_titre' => 'Sous-titre du service 1',
                 'type' => ' BTP',
@@ -22,6 +24,7 @@ class ServicesTableSeeder extends Seeder
                 'icone' => 'icone1.png',
             ],
             [
+                'id' => Uuid::uuid4()->toString(),
                 'titre' => 'Service 2',
                 'sous_titre' => 'Sous-titre du service 2',
                 'type' => ' BTP 2',
@@ -29,6 +32,7 @@ class ServicesTableSeeder extends Seeder
                 'icone' => 'icone2.png',
             ],
             [
+                'id' => Uuid::uuid4()->toString(),
                 'titre' => 'Service 3',
                 'sous_titre' => 'Sous-titre du service 3',
                 'type' => ' BTP 3',
@@ -36,6 +40,7 @@ class ServicesTableSeeder extends Seeder
                 'icone' => 'icone3.png',
             ],
             [
+                'id' => Uuid::uuid4()->toString(),
                 'titre' => 'Service 4',
                 'sous_titre' => 'Sous-titre du service 4',
                 'type' => ' BTP 4',
@@ -43,6 +48,7 @@ class ServicesTableSeeder extends Seeder
                 'icone' => 'icone4.png',
             ],
             [
+                'id' => Uuid::uuid4()->toString(),
                 'titre' => 'Service 5',
                 'sous_titre' => 'Sous-titre du service 5',
                 'type' => ' BTP 5',
@@ -50,6 +56,7 @@ class ServicesTableSeeder extends Seeder
                 'icone' => 'icone5.png',
             ],
             [
+                'id' => Uuid::uuid4()->toString(),
                 'titre' => 'Service 6',
                 'sous_titre' => 'Sous-titre du service 6',
                 'type' => ' BTP 6',

@@ -12,17 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projets', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('service_id')->nullable();
-            $table->string('titre');
-            $table->string('sous_titre');
-            $table->text('description');
+            $table->uuid('id')->primary();
+            $table->uuid('service_id')->nullable();
+            $table->text('titre');
+            $table->longText('sous_titre');
+            $table->longText('description_paragraphe_1');
+            $table->longText('description_paragraphe_2')->nullable();
+            $table->longText('description_paragraphe_3')->nullable();
             $table->text('client_name');
             $table->date('projet_date');
             $table->string('icone');
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('set null');
         });
     }
 

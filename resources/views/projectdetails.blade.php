@@ -4,7 +4,7 @@
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('{{asset('assets')}}/img/breadcrumbs-bg.jpg');">
             <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
                 <h2>Project Details</h2>
@@ -20,12 +20,12 @@
         <section id="project-details" class="project-details">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                <div class="position-relative h-100">
+                <div class="position-relative h-20">
                     <div class="slides-1 portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
 
                             <div class="swiper-slide">
-                                <img src="assets/img/projects/remodeling-1.jpg" alt="">
+                                <img src="{{asset('assets')}}/img/projects/remodeling-1.jpg" alt="">
                             </div>
 
                             <div class="swiper-slide">
@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="swiper-slide">
-                                <img src="assets/img/projects/repairs-1.jpg" alt="">
+                                <img src="{{asset('assets')}}/img/projects/repairs-1.jpg" alt="">
                             </div>
 
                         </div>
@@ -59,8 +59,20 @@
 
                             <div class="testimonial-item">
                                 <p>
-                                    {{ $projet->description}}
+                                    {{ $projet->description_paragraphe_1}}
                                 </p>
+                                <p>
+                                    {{ $projet->description_paragraphe_2}}
+                                </p>
+                                <p>
+                                    {{ $projet->description_paragraphe_3}}
+                                </p>
+                                <div>
+                                    <img src="{{asset('assets')}}/img/testimonials/testimonials-2.jpg" class="testimonial-img"
+                                        alt="">
+                                    <h3>Sara Wilsson</h3>
+                                    <h4>Designer</h4>
+                                </div>
                             </div>
                         </div>
                     </div>
