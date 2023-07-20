@@ -10,6 +10,10 @@ class Team extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $primaryKey = 'id';
+    
+    public $incrementing = false;
+
     protected $fillable = ['noms', 'prenoms', 'poste', 'image'];
 
     protected $dates = ['deleted_at'];

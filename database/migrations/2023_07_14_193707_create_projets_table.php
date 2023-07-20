@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projets', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('service_id')->nullable();
+            $table->uuid('id')->primary();
+            $table->uuid('service_id')->nullable();
             $table->string('titre');
             $table->string('sous_titre');
             $table->text('description');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('icone');
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('set null');
         });
     }
 

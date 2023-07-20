@@ -10,6 +10,10 @@ class Projet extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $primaryKey = 'id';
+    
+    public $incrementing = false;
+
     protected $fillable = ['titre', 'sous_titre', 'service_id', 'description', 'icone', 'client_name', 'projet_date'];
 
     protected $dates = ['deleted_at'];
