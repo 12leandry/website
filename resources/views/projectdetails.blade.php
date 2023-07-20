@@ -59,7 +59,13 @@
 
                             <div class="testimonial-item">
                                 <p>
-                                    {{ $projet->description}}
+                                    {{ $projet->description_paragraphe_1}}
+                                </p>
+                                <p>
+                                    {{ $projet->description_paragraphe_2}}
+                                </p>
+                                <p>
+                                    {{ $projet->description_paragraphe_3}}
                                 </p>
 <<<<<<<<< Temporary merge branch 1
 =========

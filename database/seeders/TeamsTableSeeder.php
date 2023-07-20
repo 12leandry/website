@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Faker\Factory;
+use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -20,6 +21,7 @@ class TeamsTableSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             $team = [
+                'id' => Uuid::uuid4()->toString(),
                 'noms' => $faker->lastName,
                 'prenoms' => $faker->firstName,
                 'poste' => $faker->jobTitle,

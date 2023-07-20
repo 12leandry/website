@@ -16,7 +16,7 @@ class ProjetController extends Controller
     public function index()
     {
         $page_title = "Projets";
-        $projets = Projet::paginate(5);
+        $projets = Projet::latest()->paginate(5);
         $services_type = Service::pluck('type', 'id');
         return view('projets.index', compact('projets','services_type'))->with(['page_title' => $page_title]);
     }
@@ -38,7 +38,9 @@ class ProjetController extends Controller
             $data = $request->validate([
                 'titre' => 'required',
                 'sous_titre' => 'required',
-                'description' => 'required',
+                'description_paragraphe_1' => 'required',
+                'description_paragraphe_2' => 'nullable',
+                'description_paragraphe_3' => 'nullable',
                 'service_id' => 'required',
                 'client_name' => 'required',
                 'projet_date' => 'required',
@@ -88,7 +90,9 @@ class ProjetController extends Controller
                 'titre' => 'required',
                 'sous_titre' => 'required',   
                 'service_id' => 'required',  
-                'description' => 'required',
+                'description_paragraphe_1' => 'required',
+                'description_paragraphe_2' => 'nullable',
+                'description_paragraphe_3' => 'nullable',
                 'client_name' => 'required',
                 'projet_date' => 'required',
                 'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
