@@ -61,15 +61,15 @@
                                 <p>
                                     {{ $projet->description}}
                                 </p>
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
+=========
                                 <div>
                                     <img src="{{asset('assets')}}/img/testimonials/testimonials-2.jpg" class="testimonial-img"
                                         alt="">
                                     <h3>Sara Wilsson</h3>
                                     <h4>Designer</h4>
                                 </div>
-=======
->>>>>>> ac9420df457ab6eaeab5f8a90eaf196aec96e52b
+>>>>>>>>> Temporary merge branch 2
                             </div>
                         </div>
                     </div>
