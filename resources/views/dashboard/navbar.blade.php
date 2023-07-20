@@ -5,11 +5,11 @@
         <ul class="navbar-item theme-brand flex-row  text-center">
             <li class="nav-item theme-logo">
                 <a href="index.html">
-                    <img src="{{asset('dash/assets/img/90x90.jpg')}}" class="navbar-logo" alt="logo">
+                    <img src="{{ asset('assets') }}/img/test.png" class="navbar-logo" alt="logo">
                 </a>
             </li>
             <li class="nav-item theme-text">
-                <a href="index.html" class="nav-link"> CORK </a>
+                <a href="index.html" class="nav-link"> {{config('app.name')}} </a>
             </li>
         </ul>
 
@@ -26,7 +26,7 @@
 
         <ul class="navbar-item flex-row ml-md-auto">
 
-            <li class="nav-item dropdown language-dropdown">
+            {{-- <li class="nav-item dropdown language-dropdown">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="language-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="{{asset('dash/assets/img/ca.png')}}" class="flag-width" alt="flag">
                 </a>
@@ -36,11 +36,11 @@
                     <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="{{asset('dash/assets/img/fr.png')}}" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;French</span></a>
                     <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="{{asset('dash/assets/img/ca.png')}}" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;English</span></a>
                 </div>
-            </li>
+            </li> --}}
 
             <li class="nav-item dropdown user-profile-dropdown">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img src="{{asset('dash/assets/img/90x90.jpg')}}" alt="avatar">
+                    <img src="{{ asset('assets') }}/img/test.png" alt="avatar">
                 </a>
                 <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                     <div class="">

@@ -9,10 +9,12 @@
                      <div class="footer-info">
                          <img src="{{ asset('assets') }}/img/testlogo.svg" alt="">
                          <p>
-                             A108 Adam Street <br>
-                             NY 535022, USA<br><br>
-                             <strong>Phone:</strong> +1 5589 55488 55<br>
-                             <strong>Email:</strong> info@example.com<br>
+                             Rts de Ngousso <br>
+                            Yaounde, Cameroun<br><br>
+                             <strong>Phone:</strong> +237 697-95-34-21<br>
+                             <strong>Phone:</strong> +237 699-63-80-16<br>
+                             <strong>Email:</strong> info@testsarl.com<br>
+                             
                          </p>
                          <div class="social-links d-flex mt-3">
                              <a href="#" class="d-flex align-items-center justify-content-center"><i
@@ -28,7 +30,7 @@
                  </div><!-- End footer info column-->
 
                  <div class="col-lg-2 col-md-3 footer-links">
-                     <h4>Useful Links</h4>
+                     <h4>Liens utile</h4>
                      <ul>
                          <li><a href="{{ route('home') }}">Accueil</a></li>
                          <li><a href="{{ route('A-Propos') }}">A propos</a></li>
@@ -39,17 +41,18 @@
                  </div><!-- End footer links column-->
 
                  <div class="col-lg-2 col-md-3 footer-links">
-                     <h4>Our Services</h4>
+                     <h4>Nos Services</h4>
                      <ul>
-                         <li><a href="#">Web Design</a></li>
-                         <li><a href="#">Web Development</a></li>
-                         <li><a href="#">Product Management</a></li>
-                         <li><a href="#">Marketing</a></li>
-                         <li><a href="#">Graphic Design</a></li>
+                         <li><a href="#"> BTP </a></li>
+                         <li><a href="#"> ELECTRICITE</a></li>
+                         <li><a href="#"> ÉNERGIE RENOUVELABLE</a></li>
+                         <li><a href="#">SYSTÈMES DE SÉCURITÉ</a></li>
+                         <li><a href="#">RÉSEAUX ET TÉLÉCOM</a></li>
+                         <li><a href="#">FROID ET CLIMATISATION</a></li>
                      </ul>
                  </div><!-- End footer links column-->
 
-                 <div class="col-lg-2 col-md-3 footer-links">
+                 {{-- <div class="col-lg-2 col-md-3 footer-links">
                      <h4>Hic solutasetp</h4>
                      <ul>
                          <li><a href="#">Molestiae accusamus iure</a></li>
@@ -58,9 +61,9 @@
                          <li><a href="#">Dilecta</a></li>
                          <li><a href="#">Sit quas consectetur</a></li>
                      </ul>
-                 </div><!-- End footer links column-->
+                 </div><!-- End footer links column--> --}}
 
-                 <div class="col-lg-2 col-md-3 footer-links">
+                 {{-- <div class="col-lg-2 col-md-3 footer-links">
                      <h4>Nobis illum</h4>
                      <ul>
                          <li><a href="#">Ipsam</a></li>
@@ -69,7 +72,7 @@
                          <li><a href="#">Trodelas</a></li>
                          <li><a href="#">Flexo</a></li>
                      </ul>
-                 </div><!-- End footer links column-->
+                 </div><!-- End footer links column--> --}}
 
              </div>
          </div>
