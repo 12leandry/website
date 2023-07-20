@@ -59,7 +59,13 @@
 
                             <div class="testimonial-item">
                                 <p>
-                                    {{ $projet->description}}
+                                    {{ $projet->description_paragraphe_1}}
+                                </p>
+                                <p>
+                                    {{ $projet->description_paragraphe_2}}
+                                </p>
+                                <p>
+                                    {{ $projet->description_paragraphe_3}}
                                 </p>
                                 <div>
                                     <img src="{{asset('assets')}}/img/testimonials/testimonials-2.jpg" class="testimonial-img"
