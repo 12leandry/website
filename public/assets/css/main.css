@@ -1154,7 +1154,7 @@ section {
 }
 
 .testimonials .swiper-pagination {
-  margin-top: 20px;
+  margin-top: 50px;
   position: relative;
 }
 
@@ -1395,13 +1395,17 @@ section {
 .team .member {
   position: relative;
 }
+.team .team-wrap {
+  padding-left: 50px;
+  margin-left: 50px;
+}
 
 .team .member .member-img {
   margin: 0 40px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  width: 130px;
+  width: 500px;
   align-items: center;
 }
 
@@ -1413,10 +1417,10 @@ section {
 
 .team .member .member-img img {
   position: relative;
-  z-index: 1;
+  z-index: 7;
 }
 
-.team .member .member-img .social {
+/* .team .member .member-img .social {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
@@ -1428,48 +1432,50 @@ section {
   transition: 0.3s;
   visibility: hidden;
   opacity: 0;
-}
+} */
 
-.team .member .member-img .social a {
+/* .team .member .member-img .social a {
   transition: 0.3s;
   color: #fff;
   font-size: 20px;
   margin: 0 8px;
-}
+} */
 
-.team .member .member-img .social a:hover {
+/* .team .member .member-img .social a:hover {
   color: var(--color-primary);
-}
+} */
 
-.team .member .member-info {
+/* .team .member .member-info {
   margin-top: 30px;
-}
+} */
 
-.team .member .member-info h4 {
+/* .team .member .member-info h4 {
   font-weight: 700;
   margin-bottom: 6px;
   font-size: 18px;
   color: var(--color-secondary);
-}
+  margin-left: 100px;
+} */
 
-.team .member .member-info span {
+/* .team .member .member-info span {
   font-style: italic;
-  display: block;
+  display: inline-block;
   font-size: 15px;
   color: #838893;
-  margin-bottom: 10px;
-}
+  margin-bottom: 60px;
+  margin-left: 50px;
+} */
 
-.team .member .member-info p {
+/* .team .member .member-info p {
   margin-bottom: 0;
   font-size: 14px;
-}
+} */
 
-.team .member:hover .member-img .social {
+/* .team .member:hover .member-img .social {
   padding-bottom: 0;
   visibility: visible;
   opacity: 1;
-}
+} */
 
 /*--------------------------------------------------------------
 # Servie Cards Section
@@ -2682,6 +2688,7 @@ section {
 
 .footer .footer-content .footer-info {
   margin-bottom: 30px;
+  margin-left: 20px;
 }
 
 .footer .footer-content .footer-info h3 {
@@ -2770,5 +2777,5 @@ section {
 }
 
 .footer .footer-legal .credits a {
-  color: var(--color-primary);
+  color: #ebc101;
 }

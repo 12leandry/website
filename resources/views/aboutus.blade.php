@@ -1,4 +1,4 @@
-@extends('layouts.header', ['title' => 'About', 'activeLink' => 'About'])
+@extends('layouts.header', ['title' => 'About', 'activeLink' => 'A-Propos'])
 
 
 @section('content')
@@ -240,25 +240,30 @@
                         $teams = App\Models\team::all();
                     @endphp
 
-                    @foreach ($teams as $team)
-                        <div class="col-lg-4 col-md-6 member postion-relative" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="{{ asset('storage/' . $team->image) }}" class="img-fluid" alt="">
-                                {{-- <div class="social">
-                                    <a href="#"><i class="bi bi-twitter"></i></a>
-                                    <a href="#"><i class="bi bi-facebook"></i></a>
-                                    <a href="#"><i class="bi bi-instagram"></i></a>
-                                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                                </div> --}}
-                            </div>
-                            <div class="member-info text-center">
-                                <h4>{{ $team->noms }}</h4>
-                                <span>{{ $team->poste }}</span>
-                            </div>
+                    <div class="slides-3 swiper">
+                        <div class="swiper-wrapper">
+                            @foreach ($teams as $team)
+                                <div class="swiper-slide ">
+                                    <div class="team-wrap  mb-5 mx-auto">
+                                        {{-- <div class="col-lg-4 col-md-4 member postion-relative" data-aos="fade-up" --}}
+                                        {{-- data-aos-delay="100"> --}}
+                                        <div class=" mx-auto ">
+                                            <img src="{{ asset('storage/' . $team->image) }}"
+                                                class="rounded-circle mx-auto d-block             
+                                "
+                                                alt="" style=" height: 150px; width: 150px">
+
+                                            <h4 class="text-center">{{ $team->noms }}</h4>
+                                            <h4 class="text-center text-secondary fs-5 text-xl">{{ $team->poste }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            <!-- End testimonial item -->
                         </div>
-                        
-                        <!-- End Team Member -->
-                    @endforeach
+                        <div class="swiper-pagination " style="margin-top: 20px;"></div>
+
+                    </div>
                 </div>
 
             </div>

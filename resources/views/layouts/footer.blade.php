@@ -5,7 +5,7 @@
          <div class="container">
              <div class="row">
 
-                 <div class="col-lg-4 col-md-6">
+                 <div class="col-lg-4 col-md-4">
                      <div class="footer-info">
                          <img src="{{ asset('assets') }}/img/testlogo.svg" alt="">
                          <p>
@@ -29,8 +29,8 @@
                      </div>
                  </div><!-- End footer info column-->
 
-                 <div class="col-lg-2 col-md-3 footer-links">
-                     <h4>Liens utile</h4>
+                 <div class="col-lg-4 col-md-4 footer-links">
+                     <h4>Support</h4>
                      <ul>
                          <li><a href="{{ route('home') }}">Accueil</a></li>
                          <li><a href="{{ route('A-Propos') }}">A propos</a></li>
@@ -40,7 +40,7 @@
                      </ul>
                  </div><!-- End footer links column-->
 
-                 <div class="col-lg-2 col-md-3 footer-links">
+                 <div class="col-lg-4 col-md-4 footer-links">
                      <h4>Nos Services</h4>
                      <ul>
                          <li><a href="#"> BTP </a></li>
@@ -51,29 +51,6 @@
                          <li><a href="#">FROID ET CLIMATISATION</a></li>
                      </ul>
                  </div><!-- End footer links column-->
-
-                 {{-- <div class="col-lg-2 col-md-3 footer-links">
-                     <h4>Hic solutasetp</h4>
-                     <ul>
-                         <li><a href="#">Molestiae accusamus iure</a></li>
-                         <li><a href="#">Excepturi dignissimos</a></li>
-                         <li><a href="#">Suscipit distinctio</a></li>
-                         <li><a href="#">Dilecta</a></li>
-                         <li><a href="#">Sit quas consectetur</a></li>
-                     </ul>
-                 </div><!-- End footer links column--> --}}
-
-                 {{-- <div class="col-lg-2 col-md-3 footer-links">
-                     <h4>Nobis illum</h4>
-                     <ul>
-                         <li><a href="#">Ipsam</a></li>
-                         <li><a href="#">Laudantium dolorum</a></li>
-                         <li><a href="#">Dinera</a></li>
-                         <li><a href="#">Trodelas</a></li>
-                         <li><a href="#">Flexo</a></li>
-                     </ul>
-                 </div><!-- End footer links column--> --}}
-
              </div>
          </div>
      </div>
@@ -81,14 +58,14 @@
      <div class="footer-legal text-center position-relative">
          <div class="container">
              <div class="copyright">
-                 &copy; Copyright <strong><span>TestSarl</span></strong>. All Rights Reserved
+                 &copy; Copyright 2023 <strong><span>TestSarl</span></strong>. All Rights Reserved
              </div>
              <div class="credits">
                  <!-- All the links in the footer should remain intact. -->
                  <!-- You can delete the links only if you purchased the pro version. -->
                  <!-- Licensing information: https://bootstrapmade.com/license/ -->
                  <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
-                 Designed by <a target="_blanc" href="https://zonite.org/">Zonite Sarl</a>
+                 Designed by <a target="_blanc" href="https://zonite.org/">ZONITE SARL</a>
              </div>
          </div>
      </div>

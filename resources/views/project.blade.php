@@ -1,4 +1,4 @@
-@extends('layouts.header', ['title' => 'Projects', 'activeLink' => 'Projects'])
+@extends('layouts.header', ['title' => 'Projects', 'activeLink' => 'Projets'])
 @section('content')
     <main id="main">
         <!-- ======= Breadcrumbs ======= -->

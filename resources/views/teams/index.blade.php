@@ -22,7 +22,7 @@
                             <div class="text-center">
                                 <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal"
                                     data-target="#exampleModal">
-                                    Ajuter un membre
+                                    Ajouter un membre
                                 </button>
                             </div>
                         </div>
