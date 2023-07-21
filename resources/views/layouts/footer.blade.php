@@ -21,8 +21,8 @@
                                      class="bi bi-twitter"></i></a>
                              <a href="#" class="d-flex align-items-center justify-content-center"><i
                                      class="bi bi-facebook"></i></a>
-                             <a href="#" class="d-flex align-items-center justify-content-center"><i
-                                     class="bi bi-instagram"></i></a>
+                             {{-- <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                     class="bi bi-instagram"></i></a> --}}
                              <a href="#" class="d-flex align-items-center justify-content-center"><i
                                      class="bi bi-linkedin"></i></a>
                          </div>

@@ -221,7 +221,7 @@
             <div class="container" data-aos="fade-up">
                 <div class="row gy-4">
                     @php
-                        $services = App\Models\Service::all();
+                        $services = App\Models\Service::limit(2)->get();
                     @endphp
 
                     @foreach ($services as $service)
