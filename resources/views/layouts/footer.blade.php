@@ -1,20 +1,20 @@
  <!-- ======= Footer ======= -->
  <footer id="footer" class="footer">
 
-     <div class="footer-content position-relative">
+     <div class="footer-content position-relative mx-auto">
          <div class="container">
              <div class="row">
 
-                 <div class="col-lg-4 col-md-4">
-                     <div class="footer-info">
+                 <div class="col-lg-4 col-md-6">
+                     <div class="footer-info mx-auto">
                          <img src="{{ asset('assets') }}/img/testlogo.svg" alt="">
                          <p>
                              Rts de Ngousso <br>
-                            Yaounde, Cameroun<br><br>
+                             Yaounde, Cameroun<br><br>
                              <strong>Phone:</strong> +237 697-95-34-21<br>
                              <strong>Phone:</strong> +237 699-63-80-16<br>
                              <strong>Email:</strong> info@testsarl.com<br>
-                             
+
                          </p>
                          <div class="social-links d-flex mt-3">
                              <a href="#" class="d-flex align-items-center justify-content-center"><i
@@ -29,7 +29,7 @@
                      </div>
                  </div><!-- End footer info column-->
 
-                 <div class="col-lg-4 col-md-4 footer-links">
+                 <div class="col-lg-4 col-md-6 footer-links mx-auto">
                      <h4>Support</h4>
                      <ul>
                          <li><a href="{{ route('home') }}">Accueil</a></li>
@@ -40,7 +40,7 @@
                      </ul>
                  </div><!-- End footer links column-->
 
-                 <div class="col-lg-4 col-md-4 footer-links">
+                 <div class="col-lg-4 col-md-6 footer-links mx-auto" >
                      <h4>Nos Services</h4>
                      <ul>
                          <li><a href="#"> BTP </a></li>
