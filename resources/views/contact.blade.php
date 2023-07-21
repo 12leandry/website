@@ -79,7 +79,7 @@
                                 <select class="form-control" id="subject" name="subject" required>
                                     <option value="">----Selectionner le type projet----</option>
                                     @foreach ($services_type as $serviceId => $serviceType)
-                                        <option value="{{ $serviceId }}">{{ $serviceType }}</option>
+                                        <option value="{{ $serviceType }}">{{ $serviceType }}</option>
                                     @endforeach
                                 </select>
                             </div>
