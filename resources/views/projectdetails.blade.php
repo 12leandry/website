@@ -20,7 +20,36 @@
         <section id="project-details" class="project-details">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                <div class="position-relative h-20">
+                <div class="col-lg-12 text-center">
+                    <div class="portfolio-description">
+                        <h2>{{ $projet->titre}}</h2>
+                        <p>
+                            {{ $projet->sous_titre}}
+                        </p>
+
+                        <div class="testimonial-item text-cemter">
+                            <p>
+                                {{ $projet->description_paragraphe_1}}
+                            </p>
+                            <p>
+                                {{ $projet->description_paragraphe_2}}
+                            </p>
+                            <p>
+                                {{ $projet->description_paragraphe_3}}
+                            </p>
+                            {{-- <div>
+                                <img src="{{asset('assets')}}/img/testimonials/testimonials-2.jpg" class="testimonial-img"
+                                    alt="">
+                                <h3>Sara Wilsson</h3>
+                                <h4>Designer</h4>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-between gy-4 mt-4">
+
+                     <div class="position-relative h-30 col-lg-6">
                     <div class="slides-1 portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
 
@@ -29,11 +58,11 @@
                             </div>
 
                             <div class="swiper-slide">
-                                <img src="assets/img/projects/construction-1.jpg" alt="">
+                                <img src="{{asset('assets')}}/img/projects/construction-1.jpg" alt="">
                             </div>
 
                             <div class="swiper-slide">
-                                <img src="assets/img/projects/design-1.jpg" alt="">
+                                <img src="{{asset('assets')}}/img/projects/design-1.jpg" alt="">
                             </div>
 
                             <div class="swiper-slide">
@@ -47,38 +76,6 @@
                     <div class="swiper-button-next"></div>
 
                 </div>
-
-                <div class="row justify-content-between gy-4 mt-4">
-
-                    <div class="col-lg-8">
-                        <div class="portfolio-description">
-                            <h2>{{ $projet->titre}}</h2>
-                            <p>
-                                {{ $projet->sous_titre}}
-                            </p>
-
-                            <div class="testimonial-item">
-                                <p>
-                                    {{ $projet->description_paragraphe_1}}
-                                </p>
-                                <p>
-                                    {{ $projet->description_paragraphe_2}}
-                                </p>
-                                <p>
-                                    {{ $projet->description_paragraphe_3}}
-                                </p>
-<<<<<<<<< Temporary merge branch 1
-=========
-                                <div>
-                                    <img src="{{asset('assets')}}/img/testimonials/testimonials-2.jpg" class="testimonial-img"
-                                        alt="">
-                                    <h3>Sara Wilsson</h3>
-                                    <h4>Designer</h4>
-                                </div>
->>>>>>>>> Temporary merge branch 2
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="col-lg-3">
                         <div class="portfolio-info">

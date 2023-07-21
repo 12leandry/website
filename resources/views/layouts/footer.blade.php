@@ -44,11 +44,11 @@
                      <h4>Nos Services</h4>
                      <ul>
                          <li><a href="#"> BTP </a></li>
-                         <li><a href="#"> ELECTRICITE</a></li>
-                         <li><a href="#"> ÉNERGIE RENOUVELABLE</a></li>
-                         <li><a href="#">SYSTÈMES DE SÉCURITÉ</a></li>
-                         <li><a href="#">RÉSEAUX ET TÉLÉCOM</a></li>
-                         <li><a href="#">FROID ET CLIMATISATION</a></li>
+                         <li><a href="#"> Electricité</a></li>
+                         <li><a href="#"> Énergie Renouvelable</a></li>
+                         <li><a href="#">Système de Sécurité</a></li>
+                         <li><a href="#">Réseaux et  Télécom</a></li>
+                         <li><a href="#">Froid et climatisation</a></li>
                      </ul>
                  </div><!-- End footer links column-->
              </div>

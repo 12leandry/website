@@ -41,10 +41,10 @@
                     <div class="col-lg-8">
                         <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
                         <h3>
-                            {{$service->titre}}
+                            {{ $service->titre }}
                         </h3>
                         <p>
-                            {{$service->sous_titre}}
+                            {{ $service->sous_titre }}
                         </p>
                         <ul>
                             <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
@@ -57,7 +57,7 @@
                             optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
                         </p>
                         <p>
-                            {{$service->description}}
+                            {{ $service->description }}
                         </p>
                     </div>
 
@@ -70,50 +70,56 @@
         <!-- ======= START SECTION  PROJET  ======= -->
         <section id="recent-blog-posts" class="recent-blog-posts">
             <div class="container" data-aos="fade-up">
-
-
-
                 <div class=" section-header">
                     <h2>Nos projets</h2>
                     <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
                 </div>
-                <div class="row gy-5">
-                    {{-- {{ dd($service->projets) }} --}}
-                    @foreach ($service->projets as $projet)
-                        <div class="col-xl-3 col-md-6">
-                            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
 
-                                <div class="post-img position-relative overflow-hidden">
-                                    <img src="{{ asset('storage/' . $projet->icone ) }}" class="img-fluid" alt=""
-                                        style="width: 250px; height: 250px">
-                                </div>
+            </div>
+            <section id="projects" class="projects">
+                <div class="container" data-aos="fade-up">
 
-                                <div class="post-content d-flex flex-column">
+                    <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+                        data-portfolio-sort="original-order">
 
-                                    <h3 class="post-title">{{ $projet->titre  }}</h3>
-                                    <h3 class="post-title">{{ $projet->sous_titre  }}</h3>
 
-                                    <div class="meta d-flex align-items-center">
-                                        <div class="d-flex align-items-center">
-                                            <hr>
-                                            <i class="bi bi-person"></i> <span class="ps-2">{{ $projet->description  }}</span>
+                        {{-- Project item start --}}
+                        <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+
+                            @foreach ($service->projets as $projet)
+                                <div class="col-lg-4 col-md-6 portfolio-item">
+                                    <div class="portfolio-content h-100">
+                                        <img src="{{ asset('storage/' . $projet->icone) }}" class="img-fluid" alt=""
+                                            style="width: 400px; height: 200px">
+                                        <div class="portfolio-info">
+                                            <h4>{{ $projet->titre }}</h4>
+                                            <p>{{ $projet->Sous_titre }}</p>
+                                            <a href="{{ asset('storage/' . $projet->icone) }}" title="Remodeling 1"
+                                                data-gallery="portfolio-gallery-remodeling"
+                                                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                            <a href="{{ route('project-details', $projet->id) }}" title="More Details"
+                                                class="details-link"><i class="bi bi-link-45deg"></i></a>
                                         </div>
                                     </div>
                                 </div>
+                            @endforeach
+                            <!-- End Projects Item -->
 
-                            </div>
-                        </div><!-- End post item -->
-                    @endforeach
+                        </div>
+
+                    </div>
 
                 </div>
+            </section>
 
             </div>
         </section>
         <!-- ======= END SECTION PROJET ======= -->
 
-        {{-- collaborateur  start--}}
+        {{-- collaborateur  start --}}
 
-              @include('teams')
+        @include('teams')
 
         {{-- collaborateur end --}}
 

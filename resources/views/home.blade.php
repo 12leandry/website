@@ -61,231 +61,17 @@
                                 Deserunt porro magni qui necessitatibus dolorem at animi cupiditate.</p>
                         </div>
                     </div>
-
-                    <div class="col-lg-5" data-aos="fade">
-                        <form action="forms/quote.php" method="post" class="php-email-form">
-                            <h3>Get a quote</h3>
-                            <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim
-                                linead sero park flows.</p>
-                            <div class="row gy-3">
-
-                                <div class="col-md-12">
-                                    <input type="text" name="name" class="form-control" placeholder="Name" required>
-                                </div>
-
-                                <div class="col-md-12 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="phone" placeholder="Phone" required>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                                </div>
-
-                                <div class="col-md-12 text-center">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your quote request has been sent successfully. Thank you!
-                                    </div>
-
-                                    <button type="submit">Get a quote</button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div><!-- End Quote Form -->
+                    <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up">
+                        <div class="content">
+                            <img src="{{ asset('assets') }}/img/features-1.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <!-- End Quote Form -->
 
                 </div>
 
             </div>
         </section><!-- End Get Started Section -->
-
-        <!-- ======= Constructions Section ======= -->
-        <section id="constructions" class="constructions">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>Constructions</h2>
-                    <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis
-                        dolorem dolore earum</p>
-                </div>
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-item">
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="card-bg"
-                                        style="background-image: url({{ asset('assets') }}/img/constructions-1.jpg);"></div>
-                                </div>
-                                <div class="col-xl-7 d-flex align-items-center">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Eligendi omnis sunt veritatis.</h4>
-                                        <p>Fuga in dolorum et iste et culpa. Commodi possimus nesciunt modi voluptatem
-                                            placeat deleniti adipisci. Cum delectus doloribus non veritatis. Officia
-                                            temporibus illo magnam. Dolor eos et.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-item">
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="card-bg"
-                                        style="background-image: url({{ asset('assets') }}/img/constructions-2.jpg);">
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 d-flex align-items-center">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Possimus ut sed velit assumenda</h4>
-                                        <p>Sunt deserunt maiores voluptatem autem est rerum perferendis rerum blanditiis.
-                                            Est laboriosam qui iste numquam laboriosam voluptatem architecto. Est laudantium
-                                            sunt at quas aut hic. Eum dignissimos.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-item">
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="card-bg"
-                                        style="background-image: url({{ asset('assets') }}/img/constructions-3.jpg);">
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 d-flex align-items-center">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Error beatae dolor inventore aut</h4>
-                                        <p>Dicta porro nobis. Velit cum in. Nesciunt dignissimos enim molestiae facilis
-                                            numquam quae quaerat ipsam omnis. Neque debitis ipsum at architecto officia
-                                            laboriosam odit. Ut sunt temporibus nulla culpa.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card-item">
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="card-bg"
-                                        style="background-image: url({{ asset('assets') }}/img/constructions-4.jpg);">
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 d-flex align-items-center">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Expedita voluptas ut ut nesciunt</h4>
-                                        <p>Aut est quidem doloremque voluptatem magnam quis excepturi vero quia. Eum eos
-                                            doloremque architecto illo at beatae dolore. Fugiat suscipit et sint ratione
-                                            dolores. Aut aliquid ea dolores libero nobis.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                </div>
-
-            </div>
-        </section><!-- End Constructions Section -->
-
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services section-bg">
-
-            <div class="container" data-aos="fade-up">
-                <div class="row gy-4">
-                    @php
-                        $services = App\Models\Service::all();
-                    @endphp
-
-                    @foreach ($services as $service)
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-
-                            <div class="service-item  position-relative">
-                                <div class="icon">
-                                    <i class="fa-solid fa-mountain-city"></i>
-                                </div>
-                                <h2>{{ $service->titre }}</h2>
-                                <h3>{{ $service->sous_titre }}</h3>
-                                <p>{{ $service->description }}</p>
-                                <a href="{{ route('service-details', $service->id) }} " class="readmore stretched-link">Learn more <i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- End Service Item -->
-
-                </div>
-
-            </div>
-        </section><!-- End Services Section -->
-
-        <!-- ======= Alt Services Section ======= -->
-        <section id="alt-services" class="alt-services">
-            <div class="container" data-aos="fade-up">
-
-                <div class="row justify-content-around gy-4">
-                    <div class="col-lg-6 img-bg"
-                        style="background-image: url({{ asset('assets') }}/img/alt-services.jpg);" data-aos="zoom-in"
-                        data-aos-delay="100"></div>
-
-                    <div class="col-lg-5 d-flex flex-column justify-content-center">
-                        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima
-                            temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
-
-                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
-                            <i class="bi bi-easel flex-shrink-0"></i>
-                            <div>
-                                <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                                    occaecati cupiditate non provident</p>
-                            </div>
-                        </div><!-- End Icon Box -->
-
-                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-                            <i class="bi bi-patch-check flex-shrink-0"></i>
-                            <div>
-                                <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                                    voluptatum deleniti atque</p>
-                            </div>
-                        </div><!-- End Icon Box -->
-
-                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
-                            <div>
-                                <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-                                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut
-                                    deserunt minus aut eligendi omnis</p>
-                            </div>
-                        </div><!-- End Icon Box -->
-
-                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
-                            <div>
-                                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
-                                    aspernatur odit amet. Et eligendi</p>
-                            </div>
-                        </div><!-- End Icon Box -->
-
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End Alt Services Section -->
 
         <!-- ======= Features Section ======= -->
         <section id="features" class="features section-bg">
@@ -348,8 +134,7 @@
 
                     <div class="tab-pane" id="tab-2">
                         <div class="row">
-                            <div
-                                class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
                                 <h3>Neque exercitationem debitis</h3>
                                 <p class="fst-italic">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -430,6 +215,96 @@
             </div>
         </section><!-- End Features Section -->
 
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services section-bg">
+
+            <div class="container" data-aos="fade-up">
+                <div class="row gy-4">
+                    @php
+                        $services = App\Models\Service::all();
+                    @endphp
+
+                    @foreach ($services as $service)
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+
+                            <div class="service-item  position-relative">
+                                <div class="icon">
+                                    <i class="fa-solid fa-mountain-city"></i>
+                                </div>
+                                <h2>{{ $service->titre }}</h2>
+                                <h3>{{ $service->sous_titre }}</h3>
+                                <p>{{ $service->description }}</p>
+                                <a href="{{ route('service-details', $service->id) }} "
+                                    class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    @endforeach
+
+                    <!-- End Service Item -->
+
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+
+        <!-- ======= Alt Services Section ======= -->
+        <section id="alt-services" class="alt-services">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row justify-content-around gy-4">
+                    <div class="col-lg-6 img-bg"
+                        style="background-image: url({{ asset('assets') }}/img/alt-services.jpg);" data-aos="zoom-in"
+                        data-aos-delay="100"></div>
+
+                    <div class="col-lg-5 d-flex flex-column justify-content-center">
+                        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
+                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima
+                            temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
+
+                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+                            <i class="bi bi-easel flex-shrink-0"></i>
+                            <div>
+                                <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                                    occaecati cupiditate non provident</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+                            <i class="bi bi-patch-check flex-shrink-0"></i>
+                            <div>
+                                <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                                    voluptatum deleniti atque</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            <div>
+                                <h4><a href="" class="stretched-link">Dine Pad</a></h4>
+                                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut
+                                    deserunt minus aut eligendi omnis</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            <div>
+                                <h4><a href="" class="stretched-link">Tride clov</a></h4>
+                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
+                                    aspernatur odit amet. Et eligendi</p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Alt Services Section -->
+
+
+
         <!-- ======= Our Projects Section ======= -->
         <section id="projects" class="projects">
             <div class="container" data-aos="fade-up">
@@ -451,7 +326,7 @@
                     {{-- Project item start --}}
                     <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-                        
+
 
                         @foreach ($projet as $projet)
                             <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $projet->service_id }}"">
@@ -481,7 +356,7 @@
         <!-- End Our Projects Section -->
 
 
-       
+
 
         {{-- teams start --}}
         @include('teams')

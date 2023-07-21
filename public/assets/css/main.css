@@ -372,7 +372,7 @@ section {
 @media (min-width: 1280px) {
   .navbar {
     padding: 0;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     
   }
 
@@ -400,10 +400,9 @@ section {
     justify-content: space-between;
     padding: 0 3px;
     font-family: var(--font-primary);
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.6);
-    text-transform: uppercase;
     white-space: nowrap;
     transition: 0.3s;
     position: relative;
