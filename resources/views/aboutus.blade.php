@@ -7,15 +7,19 @@
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs d-flex align-items-center"
             style="background-image: url('{{ asset('assets') }}/img/breadcrumbs-bg.jpg');">
-            <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <div class="container position-relative d-flex flex-column align-items-center text-center" data-aos="fade">
                 <br><br><br>
-                <h2>About</h2>
-                <ol>
-                    <li><a href="{{ route('home') }}">Home</a></li>
-                    <li>About</li>
-                </ol>
-
+                <h2>A propos de nous </h2>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Voluptates expedita voluptatum esse dolorum temporibus nulla, fuga modi quasi ducimus,
+                    quo tenetur, accusamus reprehenderit neque nihil libero ut officiis? Accusantium, quas?
+                </p>
+                <p class="text-white">Si vous etes interesse pas un projet ou un service</p>
+                <a href="{{ route('Contact') }}" class="btn btn-lg  btn-primary text-white bi bi-telephone-inbound">Contactez Nous </a>
             </div>
+
         </div><!-- End Breadcrumbs -->
 
         <!-- ======= About Section ======= -->
