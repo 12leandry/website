@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Projet;
 use App\Models\Service;
+use App\Models\ProjetImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,7 @@ class ProjetController extends Controller
     public function index()
     {
         $page_title = "Projets";
-        $projets = Projet::latest()->paginate(5);
+        $projets = Projet::with('icones')->latest()->paginate(5);
         $services_type = Service::pluck('type', 'id');
         return view('projets.index', compact('projets','services_type'))->with(['page_title' => $page_title]);
     }
@@ -44,17 +45,21 @@ class ProjetController extends Controller
                 'service_id' => 'required',
                 'client_name' => 'required',
                 'projet_date' => 'required',
-                'icone' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'icone' => 'required|array',
+                'icone.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
-            if ($request->hasFile('icone')) {
-                $image = $request->file('icone');
-                $imageName = time() . '-projet.' . $image->getClientOriginalExtension();
-                $imagePath = $image->storeAs('projets_icones', $imageName, 'public');
-                $data['icone'] = $imagePath;
-            }
 
-            Projet::create($data);
+            $projet = Projet::create($data);
+
+            if ($request->hasFile('icone')) {
+                foreach ($request->file('icone') as $image) {
+                    $imageName = time() . '-' . $image->getClientOriginalName();
+                    $imagePath = $image->storeAs('projets_icones', $imageName, 'public');
+                    $projet->icones()->create(['path' => $imagePath]);
+                }
+            }
+            
             return redirect()->route('projets.index')->with('success', 'Projet créé avec succès.');
         } catch (Exception $e) {
             // Récupérer le message d'erreur original
@@ -95,20 +100,38 @@ class ProjetController extends Controller
                 'description_paragraphe_3' => 'nullable',
                 'client_name' => 'required',
                 'projet_date' => 'required',
-                'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'icone' => 'nullable|array',
+                'icone.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
-    
+
             $projet = Projet::findOrFail($id);
-    
+
+            // Vérifier si le champ 'icone' est présent dans la requête
             if ($request->hasFile('icone')) {
-                $image = $request->file('icone');
-                $imageName = time()  . '-projet.' . $image->getClientOriginalExtension();
-                $imagePath = $image->storeAs('projets_icones', $imageName, 'public');
-                $data['icone'] = $imagePath;
+                // Si le champ 'icone' est un tableau, cela signifie que de nouvelles images ont été téléchargées
+                if (is_array($data['icone'])) {
+                    // Supprimer les anciennes images qui ne sont pas présentes dans le tableau
+                    $oldImages = $projet->icones()->pluck('id')->toArray();
+                    $imagesToDelete = array_diff($oldImages, $request->icone);
+
+                    foreach ($imagesToDelete as $imageId) {
+                        $image = ProjetImage::findOrFail($imageId);
+                        Storage::disk('public')->delete($image->path);
+                        $image->delete();
+                    }
+
+                    // Ajouter les nouvelles images
+                    foreach ($request->file('icone') as $image) {
+                        $imageName = time() . '-' . $image->getClientOriginalName();
+                        $imagePath = $image->storeAs('projets_icones', $imageName, 'public');
+                        $projet->icones()->create(['path' => $imagePath]);
+                    }
+                }
             }
-    
+
+            // Mise à jour des autres attributs du projet
             $projet->update($data);
-    
+
             return redirect()->route('projets.index')->with('success', 'Projet mis à jour avec succès.');
         } catch (Exception $e) {
             // Récupérer le message d'erreur original
@@ -123,13 +146,16 @@ class ProjetController extends Controller
     public function destroy($id)
     {
         try {
-            $projet = Projet::findOrFail($id);
-    
-            // Supprimer l'icône du projet s'il en existe une
-            Storage::disk('public')->delete($projet->icone);
-    
+            $projet = Projet::with('icones')->findOrFail($id);
+
+            // Loop through the images and delete them from storage
+            foreach ($projet->icones as $icone) {
+                Storage::disk('public')->delete($icone->path);
+            }
+
+            // Delete the project
             $projet->delete();
-    
+
             return redirect()->route('projets.index')->with('success', 'Projet supprimé avec succès.');
         } catch (Exception $e) {
             // Récupérer le message d'erreur original
