@@ -88,19 +88,28 @@
 
                         {{-- Project item start --}}
                         <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-
                             @foreach ($service->projets as $projet)
-                                <div class="col-lg-4 col-md-6 portfolio-item">
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $projet->service_id }}"">
                                     <div class="portfolio-content h-100">
-                                        <img src="{{ asset('storage/' . $projet->icone) }}" class="img-fluid" alt=""
-                                            style="width: 400px; height: 200px">
+                                        @if ($projet->icones->first())
+                                            <img src="{{ asset('storage/' . $projet->icones->first()->path) }}" class="img-fluid" alt="Project Image" style="width: 400px; height: 200px">
+                                        @else
+                                        <img src="https://placehold.co/600x400" class="img-fluid" alt="Placeholder Image" style="width: 400px; height: 200px">
+                                        @endif
+                                            
+                                        
                                         <div class="portfolio-info">
                                             <h4>{{ $projet->titre }}</h4>
                                             <p>{{ $projet->Sous_titre }}</p>
-                                            <a href="{{ asset('storage/' . $projet->icone) }}" title="Remodeling 1"
-                                                data-gallery="portfolio-gallery-remodeling"
-                                                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                            @if ($projet->icones->first())
+                                            <a href="{{ asset('storage/' . $projet->icones->first()->path) }}" title="Remodeling 1"
+                                                data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
+                                                    class="bi bi-zoom-in"></i></a>
+                                            @else
+                                            <a href="https://placehold.co/600x400" title="Remodeling 1"
+                                                data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
+                                                    class="bi bi-zoom-in"></i></a>
+                                            @endif
                                             <a href="{{ route('project-details', $projet->id) }}" title="More Details"
                                                 class="details-link"><i class="bi bi-link-45deg"></i></a>
                                         </div>
@@ -108,7 +117,7 @@
                                 </div>
                             @endforeach
                             <!-- End Projects Item -->
-
+    
                         </div>
 
                     </div>

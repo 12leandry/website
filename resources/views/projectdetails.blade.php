@@ -33,23 +33,11 @@
                     <div class="position-relative h-30 col-lg-6">
                         <div class="slides-1 portfolio-details-slider swiper">
                             <div class="swiper-wrapper align-items-center">
-
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('assets') }}/img/projects/remodeling-1.jpg" alt="">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('assets') }}/img/projects/construction-1.jpg" alt="">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('assets') }}/img/projects/design-1.jpg" alt="">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('assets') }}/img/projects/repairs-1.jpg" alt="">
-                                </div>
-
+                                @foreach ($projet->icones as $icone)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset('storage/' . $icone->path) }}" alt="Project Image">
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
@@ -70,26 +58,20 @@
                     </div>
 
                 </div>
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center mt-5">
                     <div class="portfolio-description">
 
 
-                        <div class="testimonial-item text-cemter">
-                            <p>
-                                {{ $projet->description_paragraphe_1 }}
+                        <div class="testimonial-item text-cemter pb-3">
+                            <p class="pb-3">
+                                <span class="pb-3"> {{ $projet->description_paragraphe_1 }}</span>
                             </p>
-                            <p>
-                                {{ $projet->description_paragraphe_2 }}
+                            <p class="pb-3">
+                                <span class="pb-3">{{ $projet->description_paragraphe_2 }}</span>
                             </p>
-                            <p>
-                                {{ $projet->description_paragraphe_3 }}
+                            <p class="pb-3">
+                                <span class="pb-3">{{ $projet->description_paragraphe_3 }}</span>
                             </p>
-                            {{-- <div>
-                                <img src="{{asset('assets')}}/img/testimonials/testimonials-2.jpg" class="testimonial-img"
-                                    alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
