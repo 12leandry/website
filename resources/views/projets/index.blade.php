@@ -71,7 +71,9 @@
                                     <td>{{ $projet->titre }}</td>
                                     <td>{{ $projet->sous_titre }}</td>
                                     <td>{{ $services_type[$projet->service_id] }}</td>
-                                    <td>{{ $projet->description_paragraphe_1 }}</td>
+                                    <td> 
+                                        {{ Illuminate\Support\Str::limit($projet->description_paragraphe_1, 35, '...') }}
+                                    </td>
                                     <td>
                                         <div class="td-content customer-name">
                                             @foreach($projet->icones as $icone)

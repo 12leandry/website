@@ -56,7 +56,10 @@
                                 <td>{{ $service->titre }}</td>
                                 <td>{{ $service->sous_titre }}</td>
                                 <td>{{ $service->type }}</td>
-                                <td>{{ $service->description }}</td>
+                                
+                                <td>
+                                    {{ Illuminate\Support\Str::limit($service->description, 35, '...') }}
+                                </td>
                                 <td>
                                     <div class="td-content customer-name">
                                         <img class="image_table" src="{{ asset('storage/' . $service->icone) }}" alt="Service-Icon">

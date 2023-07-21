@@ -55,26 +55,20 @@
                     </div>
 
                 </div>
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center mt-5">
                     <div class="portfolio-description">
 
 
-                        <div class="testimonial-item text-cemter">
-                            <p>
-                                {{ $projet->description_paragraphe_1 }}
+                        <div class="testimonial-item text-cemter pb-3">
+                            <p class="pb-3">
+                                <span class="pb-3"> {{ $projet->description_paragraphe_1 }}</span>
                             </p>
-                            <p>
-                                {{ $projet->description_paragraphe_2 }}
+                            <p class="pb-3">
+                                <span class="pb-3">{{ $projet->description_paragraphe_2 }}</span>
                             </p>
-                            <p>
-                                {{ $projet->description_paragraphe_3 }}
+                            <p class="pb-3">
+                                <span class="pb-3">{{ $projet->description_paragraphe_3 }}</span>
                             </p>
-                            {{-- <div>
-                                <img src="{{asset('assets')}}/img/testimonials/testimonials-2.jpg" class="testimonial-img"
-                                    alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
