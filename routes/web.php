@@ -22,11 +22,11 @@ use App\Http\Controllers\TeamController;
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
-    // dd(auth()->user());
-    $page_title = "Dashboard";
-    return view('dashboard')->with(['page_title' => $page_title]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     // dd(auth()->user());
+//     $page_title = "Dashboard";
+//     return view('dashboard')->with(['page_title' => $page_title]);
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard', [TestController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 

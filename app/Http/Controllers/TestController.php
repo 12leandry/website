@@ -19,8 +19,15 @@ class TestController extends Controller
     }
     public function projects()
     {
+        $projets = Projet::all();
         $services_type = Service::pluck('type', 'id');
-        return view('project', compact('services_type'));
+
+        // Charger les images pour chaque projet
+        foreach ($projets as $projet) {
+            $projet->load('icones');
+        }
+
+        return view('project', compact('services_type','projets'));
     }
     public function contact()
     {
