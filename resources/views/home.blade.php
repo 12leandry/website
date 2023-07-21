@@ -221,19 +221,20 @@
             <div class="container" data-aos="fade-up">
                 <div class="row gy-4">
                     @php
-                        $services = App\Models\Service::limit(2)->get();
+                        $services = App\Models\Service::limit(6)->get();
                     @endphp
 
                     @foreach ($services as $service)
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
 
                             <div class="service-item  position-relative">
-                                <div class="icon">
-                                    <i class="fa-solid fa-mountain-city"></i>
-                                </div>
+                                {{-- <div class="icon"> --}}
+                                    <img src="{{ asset('storage/' . $service->icone) }}" class="img-fluid image_table" alt="Serice Image">
+                                {{-- </div> --}}
                                 <h2>{{ $service->titre }}</h2>
                                 <h3>{{ $service->sous_titre }}</h3>
-                                <p>{{ $service->description }}</p>
+                                <p></p>
+                                {{-- <p>{{ $service->description }}</p> --}}
                                 <a href="{{ route('service-details', $service->id) }} "
                                     class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>
                             </div>
@@ -368,3 +369,12 @@
 
     @include('scroll')
 @endsection
+
+<style>
+    img.image_table {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 13px;
+}
+</style>

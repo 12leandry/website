@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('sous_titre');
             $table->string('type');
             $table->text('description');
+            $table->text('description_2')->nullable();
             $table->string('icone');
             $table->softDeletes();
             $table->timestamps();
