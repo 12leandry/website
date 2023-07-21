@@ -157,6 +157,10 @@
                                 <textarea class="form-control" id="description" name="description" required></textarea>
                             </div>
                             <div class="form-group">
+                                <label for="description_2">Description 2</label>
+                                <textarea class="form-control" id="description_2" name="description_2"></textarea>
+                            </div>
+                            <div class="form-group">
                                 <label for="icone">Icone</label>
                                 <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
                                 <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
@@ -205,8 +209,12 @@
                             <textarea class="form-control" id="description" name="description" required>{{ $service->description }}</textarea>
                         </div>
                         <div class="form-group">
+                            <label for="description_2">Description</label>
+                            <textarea class="form-control" id="description_2" name="description_2">{{ $service->description_2 }}</textarea>
+                        </div>
+                        <div class="form-group">
                             <label for="icone">Icone</label>
-                            <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
+                            <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*">
                             <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
                         </div>
                     </div>

@@ -186,11 +186,11 @@
                         </div>
                         <div class="form-group">
                             <label for="description_paragraphe_2">Paragraphe 2</label>
-                            <textarea class="form-control" id="description_paragraphe_2" name="description_paragraphe_2" required></textarea>
+                            <textarea class="form-control" id="description_paragraphe_2" name="description_paragraphe_2"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="description_paragraphe_3">Paragraphe 3</label>
-                            <textarea class="form-control" id="description_paragraphe_3" name="description_paragraphe_3" required></textarea>
+                            <textarea class="form-control" id="description_paragraphe_3" name="description_paragraphe_3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="icone">Icone</label>
@@ -256,11 +256,11 @@
                         </div>
                         <div class="form-group">
                             <label for="description_paragraphe_2">Paragraphe 2</label>
-                            <textarea class="form-control" id="description_paragraphe_2" name="description_paragraphe_2" required>{{ $projet->description_paragraphe_2 }}</textarea>
+                            <textarea class="form-control" id="description_paragraphe_2" name="description_paragraphe_2">{{ $projet->description_paragraphe_2 }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="description_paragraphe_3">Paragraphe 3</label>
-                            <textarea class="form-control" id="description_paragraphe_3" name="description_paragraphe_3" required>{{ $projet->description_paragraphe_3 }}</textarea>
+                            <textarea class="form-control" id="description_paragraphe_3" name="description_paragraphe_3">{{ $projet->description_paragraphe_3 }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="icone">Icone</label>

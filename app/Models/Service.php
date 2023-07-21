@@ -25,7 +25,7 @@ class Service extends Model
         });
     }
 
-    protected $fillable = ['titre', 'sous_titre', 'type', 'description', 'icone'];
+    protected $fillable = ['titre', 'sous_titre', 'type', 'description', 'description_2' , 'icone'];
 
     protected $dates = ['deleted_at'];
 

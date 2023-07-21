@@ -38,6 +38,7 @@ class ServiceController extends Controller
                 'sous_titre' => 'required',
                 'type' => 'required',
                 'description' => 'required',
+                'description_2' => 'nullable',
                 'icone' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
@@ -85,6 +86,7 @@ class ServiceController extends Controller
                 'sous_titre' => 'required',
                 'type' => 'required',
                 'description' => 'required',
+                'description_2' => 'nullable',
                 'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
     

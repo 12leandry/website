@@ -34,9 +34,10 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
 
                             <div class="service-item  position-relative">
-                                <div class="icon">
-                                    <i class="fa-solid fa-mountain-city"></i>
-                                </div>
+                                {{-- <div class="icon"> --}}
+                                    <img src="{{ asset('storage/' . $service->icone) }}" class="img-fluid image_table" alt="Serice Image">
+                                    {{-- <i class="fa-solid fa-mountain-city"></i> --}}
+                                {{-- </div> --}}
                                 <h2>{{ $service->titre }}</h2>
                                 <h3>{{ $service->sous_titre }}</h3>
                                 <p>{{ $service->description }}</p>
@@ -373,3 +374,11 @@
 
     @include('scroll')
 @endsection
+<style>
+    img.image_table {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 13px;
+}
+</style>
