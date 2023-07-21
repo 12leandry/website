@@ -289,11 +289,10 @@
                         </div><!-- End Icon Box -->
 
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            <i class="bi bi-telephone-inbound flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
-                                    aspernatur odit amet. Et eligendi</p>
+                                <h4><a href="{{ route('Contact') }}" class="stretched-link"></a></h4>
+                                <a href="{{ route('Contact') }}" class="btn btn-lg  btn-primary text-white mx-auto ">Contactez Nous </a>
                             </div>
                         </div><!-- End Icon Box -->
 

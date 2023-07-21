@@ -35,6 +35,10 @@
                  <div class="swiper-pagination " style="margin-top: 20px;"></div>
 
              </div>
+             <div class="text-center">
+                <h4><a href="{{ route('Contact') }}" class="stretched-link"></a></h4>
+                <a href="{{ route('Contact') }}" class="btn btn-lg  btn-primary text-white bi bi-telephone-inbound">Contactez Nous </a>
+            </div>
 
          </div>
 

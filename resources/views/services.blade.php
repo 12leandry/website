@@ -16,7 +16,7 @@
                     quo tenetur, accusamus reprehenderit neque nihil libero ut officiis? Accusantium, quas?
                 </p>
                 <p class="text-white">Si vous etes interesse pas un projet ou un service</p>
-                <a href="{{ route('Contact') }}" class="btn btn-lg  btn-primary text-white bi bi-telephone-inbound">Contactez Nous </a>
+                <a href="{{ route('Contact') }}" class="btn btn-lg  btn-primary text-white "><i class="bi bi-telephone-inbound"></i>Contactez Nous </a>
             </div>
         </div>
         </div><!-- End Breadcrumbs -->

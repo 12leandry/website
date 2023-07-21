@@ -39,12 +39,12 @@
                     {{-- Project item start --}}
                     <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
                         @foreach ($projets as $projet)
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $projet->service_id }}"">
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $projet->service_id }}">
                                 <div class="portfolio-content h-100">
                                     @if ($projet->icones->first())
-                                        <img src="{{ asset('storage/' . $projet->icones->first()->path) }}" class="img-fluid" alt="Project Image" style="width: 400px; height: 200px">
+                                        <img src="{{ asset('storage/' . $projet->icones->first()->path) }}" class="img-fluid" alt="Project Image" style="width: 400px; height: 400px">
                                     @else
-                                    <img src="https://placehold.co/600x400" class="img-fluid" alt="Placeholder Image" style="width: 400px; height: 200px">
+                                    <img src="https://placehold.co/600x600" class="img-fluid" alt="Placeholder Image" style="width: 400px; height: 400px">
                                     @endif
                                         
                                     

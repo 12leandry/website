@@ -5,7 +5,7 @@
 
 
         <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('{{asset('assets')}}/img/breadcrumbs-bg.jpg');">
             <div class="container position-relative d-flex flex-column align-items-center text-center" data-aos="fade">
                 <br><br><br>
                 <h2>A propos de nos service </h2>
@@ -89,12 +89,12 @@
                         {{-- Project item start --}}
                         <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
                             @foreach ($service->projets as $projet)
-                                <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $projet->service_id }}"">
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $projet->service_id }}">
                                     <div class="portfolio-content h-100">
                                         @if ($projet->icones->first())
-                                            <img src="{{ asset('storage/' . $projet->icones->first()->path) }}" class="img-fluid" alt="Project Image" style="width: 400px; height: 200px">
+                                            <img src="{{ asset('storage/' . $projet->icones->first()->path) }}" class="img-fluid" alt="Project Image" style="width: 400px; height: 400px">
                                         @else
-                                        <img src="https://placehold.co/600x400" class="img-fluid" alt="Placeholder Image" style="width: 400px; height: 200px">
+                                        <img src="https://placehold.co/600x400" class="img-fluid" alt="Placeholder Image" style="width: 400px; height: 400px">
                                         @endif
                                             
                                         

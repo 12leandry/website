@@ -10,14 +10,18 @@
             <div class="container position-relative d-flex flex-column align-items-center text-center" data-aos="fade">
                 <br><br><br>
                 <h2>A propos de nous </h2>
-                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Voluptates expedita voluptatum esse dolorum temporibus nulla, fuga modi quasi ducimus,
-                    quo tenetur, accusamus reprehenderit neque nihil libero ut officiis? Accusantium, quas?
-                </p>
+                <div>
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit. Voluptates expedita voluptatum esse dolorum temporibus nulla, fuga modi quasi
+                        ducimus,
+                        quo tenetur, accusamus reprehenderit neque nihil libero ut officiis? Accusantium, quas?
+                    </p>
+                </div>
                 <p class="text-white">Si vous etes interesse pas un projet ou un service</p>
-                <a href="{{ route('Contact') }}" class="btn btn-lg  btn-primary text-white bi bi-telephone-inbound">Contactez Nous </a>
+                <a href="{{ route('Contact') }}" class="btn btn-lg  btn-primary text-white mx-auto "><i
+                        class="bi bi-telephone-inbound"></i>Contactez Nous </a>
             </div>
 
         </div><!-- End Breadcrumbs -->
@@ -160,11 +164,11 @@
                         </div><!-- End Icon Box -->
 
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            <i class="bi bi-telephone-inbound flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
-                                    aspernatur odit amet. Et eligendi</p>
+                                <h4><a href="{{ route('Contact') }}" class="stretched-link"></a></h4>
+                                <a href="{{ route('Contact') }}"
+                                    class="btn btn-lg  btn-primary text-white mx-auto ">Contactez Nous </a>
                             </div>
                         </div><!-- End Icon Box -->
 
@@ -212,11 +216,11 @@
                         </div><!-- End Icon Box -->
 
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            <i class="bi bi-telephone-inbound flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
-                                    aspernatur odit amet. Et eligendi</p>
+                                <h4><a href="{{ route('Contact') }}" class="stretched-link"></a></h4>
+                                <a href="{{ route('Contact') }}"
+                                    class="btn btn-lg  btn-primary text-white mx-auto ">Contactez Nous </a>
                             </div>
                         </div><!-- End Icon Box -->
                     </div>
