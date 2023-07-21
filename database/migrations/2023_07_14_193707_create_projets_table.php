@@ -21,7 +21,6 @@ return new class extends Migration
             $table->longText('description_paragraphe_3')->nullable();
             $table->text('client_name');
             $table->date('projet_date');
-            $table->string('icone');
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('set null');

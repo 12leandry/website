@@ -18,12 +18,12 @@ class TestController extends Controller
     public function projects()
     {
         $services_type = Service::pluck('type', 'id');
-        // return view('projets.index', compact('projets','services_type'))->with(['page_title' => $page_title]);
         return view('project', compact('services_type'));
     }
     public function contact()
     {
-        return view('contact');
+        $services_type = Service::pluck('type', 'id');
+        return view('contact', compact('services_type'));
     }
     public function aboutus()
     {
