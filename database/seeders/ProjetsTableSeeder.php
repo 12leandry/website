@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Carbon\Carbon;
 use Ramsey\Uuid\Uuid;
+use App\Models\Projet;
+use App\Models\ProjetImage;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,85 +21,30 @@ class ProjetsTableSeeder extends Seeder
         // Récupère les services existants dans la table `services`
         $existingServices = DB::table('services')->get();
 
-        $projets = [
-            [   
-                'id' => Uuid::uuid4()->toString(),
-                'titre' => 'Projet 1',
-                'sous_titre' => 'Sous-titre du projet 1',
-                'service_id' => $existingServices->random()->id,
-                'client_name' => 'DOVV',
-                'projet_date' => Carbon::now(),
-                'description_paragraphe_1' => 'Description du projet 1',
-                'description_paragraphe_2' => 'Description du projet 2',
-                'description_paragraphe_3' => 'Description du projet 3',
-                'icone' => 'icone1.png',
-            ],
-            [   
-                'id' => Uuid::uuid4()->toString(),
-                'titre' => 'Projet 2',
-                'sous_titre' => 'Sous-titre du projet 2',
-                'service_id' => $existingServices->random()->id,
-                'client_name' => 'Santa lucia',
-                'projet_date' => Carbon::now(),
-                'description_paragraphe_1' => 'Description du projet 1',
-                'description_paragraphe_2' => 'Description du projet 2',
-                'description_paragraphe_3' => 'Description du projet 3',
-                'icone' => 'icone2.png',
-            ],
-            [   
-                'id' => Uuid::uuid4()->toString(),
-                'titre' => 'Projet 3',
-                'sous_titre' => 'Sous-titre du projet 3',
-                'service_id' => $existingServices->random()->id,
-                'client_name' => 'Carrefour',
-                'projet_date' => Carbon::now(),
-                'description_paragraphe_1' => 'Description du projet 1',
-                'description_paragraphe_2' => 'Description du projet 2',
-                'description_paragraphe_3' => 'Description du projet 3',
-                'icone' => 'icone3.png',
-            ],
-            [   
-                'id' => Uuid::uuid4()->toString(),
-                'titre' => 'Projet 4',
-                'sous_titre' => 'Sous-titre du projet 4',
-                'service_id' =>  $existingServices->random()->id,
-                'client_name' => 'Facebook',
-                'projet_date' => Carbon::now(),
-                'description_paragraphe_1' => 'Description du projet 1',
-                'description_paragraphe_2' => 'Description du projet 2',
-                'description_paragraphe_3' => 'Description du projet 3',
-                'icone' => 'icone4.png',
-            ],
-            [   
-                'id' => Uuid::uuid4()->toString(),
-                'titre' => 'Projet 5',
-                'sous_titre' => 'Sous-titre du projet 5',
-                'service_id' =>  $existingServices->random()->id,
-                'client_name' => 'Twitter',
-                'projet_date' => Carbon::now(),
-                'description_paragraphe_1' => 'Description du projet 1',
-                'description_paragraphe_2' => 'Description du projet 2',
-                'description_paragraphe_3' => 'Description du projet 3',
-                'icone' => 'icone5.png',
-            ],
-            [   
-                'id' => Uuid::uuid4()->toString(),
-                'titre' => 'Projet 6',
-                'sous_titre' => 'Sous-titre du projet 6',
-                'service_id' => $existingServices->random()->id,
-                'client_name' => 'Instagram',
-                'projet_date' => Carbon::now(),
-                'description_paragraphe_1' => 'Description du projet 1',
-                'description_paragraphe_2' => 'Description du projet 2',
-                'description_paragraphe_3' => 'Description du projet 3',
-                'icone' => 'icone6.png',
-            ],
-            // Ajoutez les autres projets ici...
-        ];
+        $numberOfFauxProjets = 10;
+        $numberOfFauxImagesPerProjet = 4;
 
-        // Parcours des projets et insertion dans la table
-        foreach ($projets as $projet) {
-            DB::table('projets')->insert($projet);
+        for ($i = 1; $i <= $numberOfFauxProjets; $i++) {
+            $projet = Projet::create([
+                'id' => Uuid::uuid4()->toString(),
+                'titre' => "Projet $i",
+                'sous_titre' => "Sous-titre du projet $i",
+                'service_id' => $existingServices->random()->id,
+                'client_name' => "Client $i",
+                'projet_date' => Carbon::now(),
+                'description_paragraphe_1' => "Description du projet $i",
+                'description_paragraphe_2' => "Description du projet $i",
+                'description_paragraphe_3' => "Description du projet $i",
+            ]);
+
+            for ($j = 1; $j <= $numberOfFauxImagesPerProjet; $j++) {
+                $imageName = "projet{$i}_image{$j}.png";
+                $imagePath = 'projets_images/' . $imageName;
+                ProjetImage::create([
+                    'projet_id' => $projet->id,
+                    'path' => $imagePath,
+                ]);
+            }
         }
     }
 }

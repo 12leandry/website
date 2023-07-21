@@ -1,4 +1,16 @@
 @extends('dashboard.app')
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<!-- TinyMCE CDN -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        
+<script>
+  tinymce.init({
+    selector: 'textarea#editor',
+  });
+</script>
+
 <link rel="stylesheet" type="text/css" href="{{asset('dash/plugins/table/datatable/datatables.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('dash/plugins/table/datatable/dt-global_style.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('dash/plugins/table/datatable/custom_dt_multiple_tables.css')}}">
@@ -62,7 +74,9 @@
                                     <td>{{ $projet->description_paragraphe_1 }}</td>
                                     <td>
                                         <div class="td-content customer-name">
-                                            <img class="image_table" src="{{ asset('storage/' . $projet->icone) }}">
+                                            @foreach($projet->icones as $icone)
+                                                <img class="image_table" src="{{ asset('storage/' . $icone->path) }}" alt="Image Projet">
+                                            @endforeach
                                         </div>
                                     </td>
                                     <td class="text-center">
@@ -166,7 +180,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description_paragraphe_1">Paragraphe 1</label>
-                            <textarea class="form-control" id="description_paragraphe_1" name="description_paragraphe_1" required></textarea>
+                            <textarea class="form-control" id="editor" name="description_paragraphe_1" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="description_paragraphe_2">Paragraphe 2</label>
@@ -178,7 +192,7 @@
                         </div>
                         <div class="form-group">
                             <label for="icone">Icone</label>
-                            <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*" required>
+                            <input type="file" class="form-control-file" id="icone" name="icone[]" accept="image/*" multiple required>
                             <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
                         </div>
                     </div>
@@ -248,7 +262,7 @@
                         </div>
                         <div class="form-group">
                             <label for="icone">Icone</label>
-                            <input type="file" class="form-control-file" id="icone" name="icone" accept="image/*">
+                            <input type="file" class="form-control-file" id="icone" name="icone[]" multiple accept="image/*">
                             <img id="imagePreview" src="#" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
                         </div>
                     </div>
@@ -297,24 +311,25 @@
 @endsection
  {{-- end of section --}}
 
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
     <script src="{{asset('dash/plugins/editors/markdown/simplemde.min.js')}}"></script>
     <script src="{{asset('dash/plugins/editors/markdown/custom-markdown.js')}}"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
     <script>
-        // Initialiser TinyMCE sur le champ textarea avec la classe tinymce-editor
-        tinymce.init({
-            selector: '.tinymce-editor', // Utiliser la classe tinymce-editor
-            // Autres options de configuration...
-        });
-    </script>
-    <script>
-        new SimpleMDE({
-        element: document.getElementById("demo1"),
-        spellChecker: false,
-        autosave: {
-            enabled: true,
-            unique_id: "demo1",
-        },
-    });
+      tinymce.init({
+        selector: 'textarea#editor',
+        skin: 'bootstrap',
+        plugins: 'lists, link, image, media',
+        toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+        menubar: false,
+      });
     </script>
  {{-- Javascript start --}}
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

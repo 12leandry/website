@@ -32,12 +32,17 @@ class Projet extends Model
         return date('Y-m-d', strtotime($value));
     }
 
-    protected $fillable = ['titre', 'sous_titre', 'service_id', 'description_paragraphe_1', 'description_paragraphe_2', 'description_paragraphe_3', 'icone', 'client_name', 'projet_date'];
+    protected $fillable = ['titre', 'sous_titre', 'service_id', 'description_paragraphe_1', 'description_paragraphe_2', 'description_paragraphe_3', 'client_name', 'projet_date'];
 
     protected $dates = ['deleted_at'];
 
     public function service()
     {
         return $this->belongsTo(Service::class, 'service_id');
+    }
+
+    public function icones()
+    {
+        return $this->hasMany(ProjetImage::class, 'projet_id', 'id');
     }
 }
