@@ -1,4 +1,4 @@
-@extends('layouts.header', ['title' => 'Projects', 'activeLink' => 'Projects'])
+@extends('layouts.header', ['title' => 'Projects', 'activeLink' => 'Projets'])
 @section('content')
     <main id="main">
         <!-- ======= Breadcrumbs ======= -->
@@ -18,7 +18,10 @@
         <!-- ======= Our Projects Section ======= -->
         <section id="projects" class="projects">
             <div class="container" data-aos="fade-up">
-
+                <div class=" section-header">
+                    <h2>Nos projets</h2>
+                    <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
+                </div>
                 <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
                     data-portfolio-sort="original-order">
                     {{-- filter project start --}}

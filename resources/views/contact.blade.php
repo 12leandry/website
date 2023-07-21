@@ -69,33 +69,29 @@
                                     <input type="email" class="form-control" name="email" id="email"
                                         placeholder="Votre Email" required>
                                 </div>
+                                <div>
+                                    <select class="form-control" id="subject" name="subject" required>
+                                        <option value="">----Selectionner un service ----</option>
+                                        @foreach ($services_type as $serviceId => $serviceType)
+                                            <option value="{{ $serviceType }}">{{ $serviceType }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                    <div class="my-3">
+                                        <div class="loading">Loading</div>
+                                        <div class="error-message"></div>
+                                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                                    </div>
+                                </div>
+                                <div class="text-center"><button type="submit">Send Message</button></div>
                             </div>
-                            {{-- <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" required>
-                            </div> --}}
-                            {{-- <div class="form-group"> --}}
-                                {{-- <label for="type">Type</label> --}}
-                                <select class="form-control" id="subject" name="subject" required>
-                                    <option value="">----Selectionner le type projet----</option>
-                                    @foreach ($services_type as $serviceId => $serviceType)
-                                        <option value="{{ $serviceType }}">{{ $serviceType }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
                         </form>
-                    </div><!-- End Contact Form -->
+                    </div>
+                </div><!-- End Contact Form -->
 
-                </div>
+            </div>
 
             </div>
         </section>

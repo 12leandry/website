@@ -71,7 +71,7 @@
                       <li></li>
                       <li></li>
                       <li><img src="{{ asset('assets') }}/img/flags/cameroon.svg"
-                              style="width: 50px; height: 25px; padding-right: 20px  " alt=""> </li>
+                              style="width: 50px; height: 25px; padding-left: 20px  " alt=""> </li>
                   </ul>
               </nav>
             <!-- .navbar end -->
