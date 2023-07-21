@@ -70,9 +70,18 @@
                                         placeholder="Votre Email" required>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject"
                                     placeholder="Subject" required>
+                            </div> --}}
+                            {{-- <div class="form-group"> --}}
+                                {{-- <label for="type">Type</label> --}}
+                                <select class="form-control" id="subject" name="subject" required>
+                                    <option value="">----Selectionner le type projet----</option>
+                                    @foreach ($services_type as $serviceId => $serviceType)
+                                        <option value="{{ $serviceId }}">{{ $serviceType }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
