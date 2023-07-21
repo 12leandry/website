@@ -30,23 +30,11 @@
                     <div class="position-relative h-30 col-lg-6">
                         <div class="slides-1 portfolio-details-slider swiper">
                             <div class="swiper-wrapper align-items-center">
-
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('assets') }}/img/projects/remodeling-1.jpg" alt="">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('assets') }}/img/projects/construction-1.jpg" alt="">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('assets') }}/img/projects/design-1.jpg" alt="">
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <img src="{{ asset('assets') }}/img/projects/repairs-1.jpg" alt="">
-                                </div>
-
+                                @foreach ($projet->icones as $icone)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset('storage/' . $icone->path) }}" alt="Project Image">
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
