@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
+use App\Models\Projet;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -36,6 +38,22 @@ class TestController extends Controller
     public function projectdetail()
     {
         return view('projectdetails');
+    }
+
+    public function dashboard()
+    {
+        $page_title = "Dashboard";
+
+        $services = Service::all();
+        $projets = Projet::all();
+        $team = Team::all();
+
+        $totalServices = $services->count();
+        $totalProjets = $projets->count();
+        $totalTeamMembers = $team->count();
+
+        return view('dashboard', compact('totalServices', 'totalProjets', 'totalTeamMembers'))->with(['page_title' => $page_title]);
+        // return view('dashboard');
     }
     
 }

@@ -28,6 +28,8 @@ Route::get('/dashboard', function () {
     return view('dashboard')->with(['page_title' => $page_title]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/dashboard', [TestController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/', [TestController::class, 'home'])->name('home');
 Route::get('/Services', [TestController::class, 'Services'])->name('Services');
 Route::get('/Projets', [TestController::class, 'projects'])->name('Projets');
