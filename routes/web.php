@@ -29,8 +29,9 @@ use App\Http\Controllers\TeamController;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard', [TestController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
-
+// sendContactEmail
 Route::get('/', [TestController::class, 'home'])->name('home');
+Route::post('/send-contact-email', [TestController::class, 'sendMail'])->name('send.contact.email');;
 Route::get('/Services', [TestController::class, 'Services'])->name('Services');
 Route::get('/Projets', [TestController::class, 'projects'])->name('Projets');
 Route::get('/Contact', [TestController::class, 'contact'])->name('Contact');
