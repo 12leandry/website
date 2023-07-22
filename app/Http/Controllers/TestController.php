@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use App\Models\Projet;
 use App\Models\Service;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TestController extends Controller
 {
@@ -61,6 +63,24 @@ class TestController extends Controller
 
         return view('dashboard', compact('totalServices', 'totalProjets', 'totalTeamMembers'))->with(['page_title' => $page_title]);
         // return view('dashboard');
+    }
+
+
+    public function sendMail(Request $request)
+    {
+
+        // Adresse e-mail du destinataire
+        $recipientEmail = 'destinataire@example.com';
+
+        // Récupérer les données du formulaire
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $message = $request->input('message');
+
+        Mail::to($recipientEmail)->send(new ContactMail($name, $email, $subject, $message));
+
+        return redirect()->back()->with('success', 'Votre message a été envoyé avec succès.');
     }
     
 }
