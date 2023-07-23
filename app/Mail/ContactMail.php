@@ -32,7 +32,7 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->from($this->email)
-                    ->subject('Nouveau message de contact')
+                    // ->subject('Nouveau message de contact')
                     ->view('emails.contact');
     }
 
@@ -42,7 +42,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Nouveau message de contact',
+            // subject: 'Nouveau message de contact',
         );
     }
 

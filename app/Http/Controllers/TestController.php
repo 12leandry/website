@@ -66,7 +66,7 @@ class TestController extends Controller
     }
 
 
-    public function sendMail(Request $request)
+    public function sendEmail(Request $request)
     {
 
         // Adresse e-mail du destinataire

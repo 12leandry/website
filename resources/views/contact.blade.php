@@ -57,7 +57,7 @@
                     </div>
                     <!-- End Google Maps -->
                     <div class="col-lg-6">
-                        <form action="{{ route('send.contact.email') }}" method="post" role="form" class="php-email-form">
+                        <form action="{{ route('send.contact.email') }}" method="post" role="form" >
                             @csrf
                             <div class="row gy-4">
                                 <div class="col-lg-6 form-group">

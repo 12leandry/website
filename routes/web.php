@@ -31,7 +31,6 @@ use App\Http\Controllers\TeamController;
 Route::get('/dashboard', [TestController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 // sendContactEmail
 Route::get('/', [TestController::class, 'home'])->name('home');
-Route::post('/send-contact-email', [TestController::class, 'sendMail'])->name('send.contact.email');;
 Route::get('/Services', [TestController::class, 'Services'])->name('Services');
 Route::get('/Projets', [TestController::class, 'projects'])->name('Projets');
 Route::get('/Contact', [TestController::class, 'contact'])->name('Contact');
@@ -61,5 +60,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('/send-contact-email', [TestController::class, 'sendEmail'])->name('send.contact.email');
+
 
 require __DIR__.'/auth.php';
