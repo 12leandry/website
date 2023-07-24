@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Login Cover | CORK - Multipurpose Bootstrap Dashboard Template </title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="{{asset('dash/assets/img/test1689447240.ico')}}">
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
     <link href="{{asset('dash/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
                     <div class="form-content ">
                         <a href="#" class="logo d-flex align-items-center">
                             <!-- Uncomment the line below if you also wish to use an image logo -->
-                             <img src="{{asset('assets')}}/img/testlogo.svg"style="width: 100%; height: 100%; align-item: center;" alt="">
+                             <img src="{{asset('assets')}}/img/testlogo.svg"style="width: 80%; height: 50%;" alt="" class="mx-center">
                             {{-- <h1>UpConstruction<span>.</span></h1> --}}
                           </a>
                         <h1 class="">Log In to <a href="index.html"><span class="brand-name">Dashboard</span></a></h1>

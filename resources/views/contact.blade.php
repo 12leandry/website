@@ -57,6 +57,9 @@
                     </div>
                     <!-- End Google Maps -->
                     <div class="col-lg-6">
+                        @if (Session::has('success'))
+                            <div class="alert alert-success" role="alert">{{ Session::get('success') }}</div>
+                        @endif
                         <form action="{{ route('send.contact.email') }}" method="post" role="form" >
                             @csrf
                             <div class="row gy-4">
@@ -78,13 +81,13 @@
                                 </div>
                                 <div class="form-group">
                                     <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                                    <div class="my-3">
+                                    {{-- <div class="my-3">
                                         <div class="loading">Loading</div>
                                         <div class="error-message"></div>
                                         <div class="sent-message">Your message has been sent. Thank you!</div>
-                                    </div>
+                                    </div> --}}
                                 </div>
-                                <div class="text-center"><button type="submit">Send Message</button></div>
+                                <div class="text-center"><button type="submit" class="btn btn-danger">Send Message</button></div>
                             </div>
                         </form>
                     </div>
