@@ -4,16 +4,16 @@
     <section id="hero" class="hero">
 
         <div class="info ">
-            <div class="container" style="margin-top: 200px">
+            <div class="container" style="margin-top: 150px">
                 <div class="col">
                     <div class="row mb-5">
                         <div class="col-lg-6">
-                            <h2 data-aos="fade-down" class="text-light">Bienvenue chez Test SARL <span>Votre partenaire
+                            <h2 data-aos="fade-down" class="text-light" style="margin-top: -15px">Bienvenue chez Test SARL <span>Votre partenaire
                                     de confiance !</span>
-                                </h1>
+                                </h2>
                         </div>
-                        <div class="col-lg-6">
-                            <p data-aos="fade-up" class="fw-5">Chez Test SARL, nous nous engageons à vous offrir bien plus
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <p data-aos="fade-up" class="fw-5" style="margin-top: -25px">Chez Test SARL, nous nous engageons à vous offrir bien plus
                                 qu'un simple
                                 service. Nous sommes une équipe passionnée et expérimentée, prête à relever tous les défis
                                 pour
@@ -23,7 +23,8 @@
                                 encore
                                 un professionnel à la recherche de solutions BTP de qualité, nous sommes là pour vous
                                 accompagner à chaque étape.</p>
-                            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get
+                            <a data-aos="fade-up" data-aos-delay="200" 
+                                href="#get-started" class="btn-get-started" style="margin-top: -40px">Get
                                 Started</a>
                         </div>
                     </div>

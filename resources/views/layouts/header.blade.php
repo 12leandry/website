@@ -31,13 +31,6 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets') }}/css/main.css" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: UpConstruction
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page" data-bs-spy="scroll" data-bs-target="#navbar">
